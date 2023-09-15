@@ -13,7 +13,7 @@
         max="359" 
         @input="updateHue"
       />
-      <label for="hue-input">Hue</label>
+      <label for="hue-input">Hue ({{ hue }})</label>
     </div>
 
     <div class="wrapper sat">
@@ -26,7 +26,7 @@
         value="100" 
         @input="updateSat"
       />
-      <label for="sat-input">Saturation</label>
+      <label for="sat-input">Saturation ({{ saturation }})</label>
     </div>
 
     <div class="wrapper light">
@@ -39,7 +39,7 @@
         value="50" 
         @input="updateLight"
       />
-      <label for="light-input">Lightness</label>
+      <label for="light-input">Lightness ({{ lightness }})</label>
     </div>
   </main>
 </template>
