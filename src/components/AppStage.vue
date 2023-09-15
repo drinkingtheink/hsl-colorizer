@@ -102,7 +102,7 @@ export default {
     },
     rgb() {
       return chroma(this.hex).rgb()
-    }
+    },
   },
   mounted() {
     this.hue = this.getRandInt(0, 359);
