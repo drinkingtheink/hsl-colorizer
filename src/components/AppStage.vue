@@ -23,7 +23,6 @@
         name="sat-input" 
         min="0" 
         max="100" 
-        value="100" 
         @input="updateSat"
       />
       <label for="sat-input">Saturation ({{ saturation }})</label>
@@ -66,12 +65,19 @@ export default {
     updateLight(e) {
       this.lightness = e.target.value;
     },
+    getRandInt(min, max) { // min and max included 
+      return Math.floor(Math.random() * (max - min + 1) + min)
+    },
   },
   computed: {
     colorDisplay() {
       return `background-color: hsl(${this.hue}deg ${this.saturation}% ${this.lightness}%)`;
     },
   },
+  mounted() {
+    this.hue = this.getRandInt(0, 359);
+    document.getElementById('hue-input').value = this.hue;
+  }
 }
 </script>
 
