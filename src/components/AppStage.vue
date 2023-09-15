@@ -85,7 +85,7 @@ export default {
         return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
       };
       return `#${f(0)}${f(8)}${f(4)}`;
-    }
+    },
   },
   computed: {
     colorDisplay() {
@@ -109,9 +109,8 @@ export default {
     document.getElementById('hue-input').value = this.hue;
   },
   watch: {
-    hslDecl() {
-      let theColor = chroma.hsl(this.hslDecl);
-      console.log(`MADE A COLOR >>>> ${JSON.stringify(theColor)}`)
+    hslVals() {
+
     }
   },
 }
