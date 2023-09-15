@@ -71,7 +71,10 @@ export default {
   },
   computed: {
     colorDisplay() {
-      return `background-color: hsl(${this.hue}deg ${this.saturation}% ${this.lightness}%)`;
+      return `background-color: ${this.hslDecl}`
+    },
+    hslDecl() {
+      return `hsl(${this.hue}deg ${this.saturation}% ${this.lightness}%)`
     },
   },
   mounted() {
