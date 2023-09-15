@@ -4,6 +4,11 @@
 
     <div class="color-display" :style="colorDisplay"><p>{{ hslDecl }}</p></div>
 
+    <div class="color-variants">
+      <span><strong>HEX:</strong> {{ hex }}</span>
+      <span><strong>RGB:</strong> {{ rgb }}</span>
+    </div>
+
     <div class="wrapper hue">
       <input 
         type="range" 
@@ -23,6 +28,7 @@
         name="sat-input" 
         min="0" 
         max="100" 
+        value="90"
         @input="updateSat"
       />
       <label for="sat-input">Saturation ({{ saturation }})</label>
@@ -44,16 +50,17 @@
 </template>
 
 <script>
-// import chroma from "chroma-js";
+import chroma from "chroma-js";
 
 export default {
   name: 'AppStage',
   data() {
     return {
       hue: 0,
-      saturation: 100,
+      saturation: 90,
       lightness: 50,
       scale: [],
+      steps: 5,
     }
   },
   methods: {
@@ -69,6 +76,16 @@ export default {
     getRandInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)
     },
+    hslToHex(h, s, l) {
+      l /= 100;
+      const a = s * Math.min(l, 1 - l) / 100;
+      const f = n => {
+        const k = (n + h / 30) % 12;
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
+      };
+      return `#${f(0)}${f(8)}${f(4)}`;
+    }
   },
   computed: {
     colorDisplay() {
@@ -77,11 +94,26 @@ export default {
     hslDecl() {
       return `hsl(${this.hue} ${this.saturation}% ${this.lightness}%)`
     },
+    hslVals() {
+      return `${this.hue} ${this.saturation} ${this.lightness}`
+    },
+    hex() {
+      return this.hslToHex(this.hue, this.saturation, this.lightness)
+    },
+    rgb() {
+      return chroma(this.hex).rgb()
+    }
   },
   mounted() {
     this.hue = this.getRandInt(0, 359);
     document.getElementById('hue-input').value = this.hue;
-  }
+  },
+  watch: {
+    hslDecl() {
+      let theColor = chroma.hsl(this.hslDecl);
+      console.log(`MADE A COLOR >>>> ${JSON.stringify(theColor)}`)
+    }
+  },
 }
 </script>
 
