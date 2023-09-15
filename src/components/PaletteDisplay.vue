@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import chroma from "chroma-js";
+// import chroma from "chroma-js";
 
 export default {
   name: 'PaletteDisplay',

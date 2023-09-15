@@ -2,7 +2,7 @@
   <main>
     <h2>Make a Color in HSL</h2>
 
-    <div class="color-display" :style="colorDisplay"><p>{{ hslDecl }}</p></div>
+    <div class="color-display" :style="colorDisplay"><p><strong>HSL:</strong> {{ hue }}° {{ saturation }}% {{ lightness }}%</p></div>
 
     <div class="color-variants">
       <span><strong>HEX:</strong> {{ hex }}</span>
@@ -46,14 +46,20 @@
       />
       <label for="light-input">Lightness ({{ lightness }})</label>
     </div>
+
+    <PaletteDisplay/>
   </main>
 </template>
 
 <script>
 import chroma from "chroma-js";
+import PaletteDisplay from './PaletteDisplay.vue';
 
 export default {
   name: 'AppStage',
+  components: {
+    PaletteDisplay
+  },
   data() {
     return {
       hue: 0,
