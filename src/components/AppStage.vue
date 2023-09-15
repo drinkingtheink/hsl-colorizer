@@ -2,7 +2,7 @@
   <main>
     <h2>Make a Color in HSL</h2>
 
-    <div class="color-display" :style="colorDisplay"/>
+    <div class="color-display" :style="colorDisplay"><p>{{ hslDecl }}</p></div>
 
     <div class="wrapper hue">
       <input 
@@ -65,7 +65,7 @@ export default {
     updateLight(e) {
       this.lightness = e.target.value;
     },
-    getRandInt(min, max) { // min and max included 
+    getRandInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)
     },
   },
@@ -74,7 +74,7 @@ export default {
       return `background-color: ${this.hslDecl}`
     },
     hslDecl() {
-      return `hsl(${this.hue}deg ${this.saturation}% ${this.lightness}%)`
+      return `hsl(${this.hue} ${this.saturation}% ${this.lightness}%)`
     },
   },
   mounted() {
@@ -89,6 +89,13 @@ export default {
   padding: 4rem;
   margin: 2rem auto 0 auto;
   width: 20rem;
+  border-radius: 10px;
+}
+
+.color-display p {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
   border-radius: 10px;
 }
 </style>
