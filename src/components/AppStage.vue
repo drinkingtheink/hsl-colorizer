@@ -1,19 +1,20 @@
 <template>
   <main>
     <section>
-    <input type="color" @input="updateactiveHex" />
+      <h2>Color Selection</h2>
+      <input type="color" @input="updateactiveHex" />
     </section>
     <section>
       <div v-show="activeHex" class="active-color-display hex" :style="activeHexDisplay" />
 
-      <div v-show="activeRGB" class="rgb">
+      <div class="rgb">
         <p>{{ activeRGB }}</p>
       </div>
 
-      <div v-show="activeHSL" class="hsl">
+      <div class="hsl">
         <p>{{ activeHSL }}</p>
 
-        <div v-show="activeHSL" class="active-color-display hsl" :style="{ 'background-color': 'hsl(' + activeHSL + ')' }" />
+        <div class="active-color-display hsl" :style="activeHSLDisplay" />
       </div>
     </section>
   </main>
@@ -56,9 +57,9 @@ export default {
           : 4 + (r - g) / s
         : 0;
       return [
-        60 * h < 0 ? 60 * h + 360 : 60 * h,
-        100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
-        (100 * (2 * l - s)) / 2,
+        Math.round(60 * h < 0 ? 60 * h + 360 : 60 * h),
+        Math.round(100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0)) + '%',
+        Math.round((100 * (2 * l - s)) / 2) + '%',
       ];
     },
   },
@@ -68,7 +69,10 @@ export default {
     },
     activeRGB() {
       return this.hexToRgb(this.activeHex);
-    }
+    },
+    activeHSLDisplay() {
+      return `background-color: ${this.activeHSL}`;
+    },
   },
 }
 </script>
