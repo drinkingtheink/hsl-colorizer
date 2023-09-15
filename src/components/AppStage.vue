@@ -53,6 +53,7 @@ export default {
       hue: 0,
       saturation: 100,
       lightness: 50,
+      scale: [],
     }
   },
   methods: {
