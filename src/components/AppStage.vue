@@ -64,17 +64,20 @@
     </div>
 
     <PaletteDisplay :hex="hex" :focusHueInput="focusHueInput" />
+    <ColorDisplay :hex="hex" :hue="hue" :sat="saturation" :light="lightness" />
   </main>
 </template>
 
 <script>
 import chroma from "chroma-js";
 import PaletteDisplay from './PaletteDisplay.vue';
+import ColorDisplay from './ColorDisplay.vue';
 
 export default {
   name: 'AppStage',
   components: {
-    PaletteDisplay
+    PaletteDisplay,
+    ColorDisplay
   },
   data() {
     return {
