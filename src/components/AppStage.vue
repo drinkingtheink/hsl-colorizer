@@ -73,6 +73,10 @@ import chroma from "chroma-js";
 import PaletteDisplay from './PaletteDisplay.vue';
 import ColorDisplay from './ColorDisplay.vue';
 
+const maxHue = 359
+const maxSat = 100
+const maxLit = 100
+
 export default {
   name: 'AppStage',
   components: {
@@ -87,14 +91,30 @@ export default {
     }
   },
   methods: {
+    checkForQueryStrings() {
+      let queryParams = new URLSearchParams(window.location.search)
+      let hQuery = queryParams.get('hue')
+      let sQuery = queryParams.get('sat')
+      let lQuery = queryParams.get('lit')
+
+      if (hQuery) {
+        this.hue = Number(hQuery)
+      } else {
+        console.log(`No hue query found so setting randomly...`)
+        this.hue = this.getRandInt(0, 359)
+      }
+
+      if (sQuery) this.saturation = Number(sQuery)
+      if (lQuery) this.lightness = Number(lQuery)
+    },
     updateHue(e) {
-      this.hue = e.target.value;
+      this.hue = Number(e.target.value);
     },
     updateSat(e) {
-      this.saturation = e.target.value;
+      this.saturation = Number(e.target.value);
     },
     updateLight(e) {
-      this.lightness = e.target.value;
+      this.lightness = Number(e.target.value);
     },
     getRandInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)
@@ -172,13 +192,24 @@ export default {
     },
   },
   mounted() {
-    this.hue = this.getRandInt(0, 359);
-    document.getElementById('hue-input').value = this.hue;
+    this.checkForQueryStrings()
+
+    const hueInput = document.getElementById('hue-input')
+    if (hueInput) document.getElementById('hue-input').value = this.hue
   },
   watch: {
     hex() {
-      document.documentElement.style.setProperty('--primary', this.hex);
-    }
+      document.documentElement.style.setProperty('--primary', this.hex)
+    },
+    hue() {
+      if (this.hue > maxHue) this.hue = maxHue
+    },
+    saturation() {
+      if (this.saturation > maxSat) this.saturation = maxSat
+    },
+    lightness() {
+      if (this.lightness > maxLit) this.lightness = maxLit
+    },
   }
 }
 </script>
