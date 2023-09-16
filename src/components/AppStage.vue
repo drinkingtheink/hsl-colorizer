@@ -47,7 +47,7 @@
       <label for="light-input">Lightness ({{ lightness }})</label>
     </div>
 
-    <PaletteDisplay/>
+    <PaletteDisplay :hex="hex"/>
   </main>
 </template>
 
@@ -65,8 +65,6 @@ export default {
       hue: 0,
       saturation: 90,
       lightness: 50,
-      scale: [],
-      steps: 5,
     }
   },
   methods: {

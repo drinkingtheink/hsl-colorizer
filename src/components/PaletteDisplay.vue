@@ -9,6 +9,16 @@
 
 export default {
   name: 'PaletteDisplay',
+  props: {
+      hex: String
+  },
+  data() {
+      return {
+          steps: 5,
+          darkArray: [],
+          lightArray: [],
+      }
+  }
 }
 </script>
 
