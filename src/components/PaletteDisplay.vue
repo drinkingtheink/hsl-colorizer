@@ -99,6 +99,7 @@
     <div class="gallery-wrapper custom">
         <h3>Make Your Own Mix</h3>
         <div v-if="!customMixColor" class="capture-color">
+            <p class="romance"><span class="selected"/><span class="and">&</span><span class="q-mark">?</span><span class="q-mark">?</span><span class="q-mark">?</span></p>
             <label for="custom-color-input">Pick a color to mix with your selection</label>
             <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" />
         </div>
@@ -292,6 +293,10 @@ export default {
     position: relative;
 }
 
+.gallery-wrapper.custom .capture-color {
+
+}
+
 .gallery-wrapper.custom .capture-color input {
     width: var(--customMixInputWidth);
 }
@@ -308,5 +313,22 @@ export default {
     position: absolute;
     right: 2rem;
     top: 1rem;
+}
+
+.romance {
+    font-size: 180%;
+}
+
+.romance .selected {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: var(--primary);
+    display: inline-block;
+}
+
+.romance .and {
+    margin: 0 10px;
 }
 </style>
