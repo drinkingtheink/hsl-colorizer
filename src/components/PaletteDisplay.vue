@@ -96,17 +96,20 @@
         </div>
     </div>
 
-    <!-- <div v-if="randomArray.length > 0" class="gallery-wrapper random">
-        <h3>Random Selection</h3>
-        <div class="gallery">
+    <div v-if="toPurpleArray.length > 0" class="gallery-wrapper custom">
+        <h3>Make Your Own Mix</h3>
+        <div v-if="!customMixColor" class="capture-color">
+            <input type="color" @input="handleCustomColorInput" />
+        </div>
+        <div v-else class="gallery">
             <span
                 class="swatch"
-                v-for="swatch in randomArray"
+                v-for="swatch in toPurpleArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            />
+            ><span>{{ swatch }}</span></span>
         </div>
-    </div> -->
+    </div>
   </section>
 </template>
 
@@ -123,84 +126,86 @@ export default {
           steps: 5,
           darkArray: [],
           lightArray: [],
-          randomArray: [],
           toBlueArray: [],
           toRedArray: [],
           toYellowArray: [],
           toGreenArray: [],
           toOrangeArray: [],
           toPurpleArray: [],
+          customMixColor: null,
       }
   },
   methods: {
-    makePalettes() {
-        this.makeDarkArray()
-        this.makeLightArray()
-        this.makeRandomArray()
-        this.makeToBlueArray()
-        this.makeToRedArray()
-        this.makeToYellowArray()
-        this.makeToGreenArray()
-        this.makeToOrangeArray()
-        this.makeToPurpleArray()
+    makePalettes(color) {
+        this.makeDarkArray(color)
+        this.makeLightArray(color)
+        this.makeToBlueArray(color)
+        this.makeToRedArray(color)
+        this.makeToYellowArray(color)
+        this.makeToGreenArray(color)
+        this.makeToOrangeArray(color)
+        this.makeToPurpleArray(color)
     },
-    makeDarkArray() {
-        const chromaColor = chroma(this.hex)
+    makeDarkArray(color) {
+        const chromaColor = chroma(color)
 
         for (var i = 0; i < this.steps; i++) {
             this.darkArray[i] = chromaColor.darken(i)
         }
     },
-    makeLightArray() {
-        const chromaColor = chroma(this.hex)
+    makeLightArray(color) {
+        const chromaColor = chroma(color)
 
         for (var i = 0; i < this.steps; i++) {
             this.lightArray[i] = chromaColor.brighten(i)
         }
     },
-    makeRandomArray() {
-        for (var i = 0; i < this.steps; i++) {
-            this.randomArray[i] = chroma.random()
-        }
-
-        this.randomArray[0] = this.hex
-    },
-    makeToBlueArray() {
-        const chromaColor = chroma(this.hex)
+    makeToBlueArray(color) {
+        const chromaColor = chroma(color)
 
         for (var i = 0; i < this.steps; i++) {
             this.toBlueArray[i] = chroma.mix(chromaColor, 'blue', i * 0.25)
         }
     },
-    makeToRedArray() {
-        const chromaColor = chroma(this.hex)
+    makeToRedArray(color) {
+        const chromaColor = chroma(color)
 
         for (var i = 0; i < this.steps; i++) {
             this.toRedArray[i] = chroma.mix(chromaColor, 'red', i * 0.25)
         }
     },
-    makeToYellowArray() {
-        const chromaColor = chroma(this.hex)
+    makeToYellowArray(color) {
+        const chromaColor = chroma(color)
 
         for (var i = 0; i < this.steps; i++) {
             this.toYellowArray[i] = chroma.mix(chromaColor, 'yellow', i * 0.25)
         }
     },
-    makeToGreenArray() {
-        const chromaColor = chroma(this.hex)
+    makeToGreenArray(color) {
+        const chromaColor = chroma(color)
 
         for (var i = 0; i < this.steps; i++) {
             this.toGreenArray[i] = chroma.mix(chromaColor, 'green', i * 0.25)
         }
     },
-    makeToOrangeArray() {
-        const chromaColor = chroma(this.hex)
+    makeToOrangeArray(color) {
+        const chromaColor = chroma(color)
 
         for (var i = 0; i < this.steps; i++) {
             this.toOrangeArray[i] = chroma.mix(chromaColor, 'orange', i * 0.25)
         }
     },
-    makeToPurpleArray() {
+    makeToPurpleArray(color) {
+        const chromaColor = chroma(color)
+
+        for (var i = 0; i < this.steps; i++) {
+            this.toPurpleArray[i] = chroma.mix(chromaColor, 'purple', i * 0.25)
+        }
+    },
+    handleCustomColorInput(e) {
+        this.customMixColor = e.target.value;
+    },
+    makeCustomMixArray() {
         const chromaColor = chroma(this.hex)
 
         for (var i = 0; i < this.steps; i++) {
@@ -209,12 +214,17 @@ export default {
     },
   },
   mounted() {
-      if (this.hex) this.makePalettes()
+      if (this.hex) this.makePalettes(this.hex)
   },
   watch: {
     hex() {
-        this.makePalettes()
-    }
+        this.makePalettes(this.hex)
+    },
+    customMixColor() {
+        if (this.customMixColor !== 'undefined') {
+            this.makePalettes(this.customMixColor)
+        }
+    },
   },
 }
 </script>
