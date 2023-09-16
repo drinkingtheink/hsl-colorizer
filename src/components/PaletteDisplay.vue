@@ -60,7 +60,12 @@ export default {
   },
   mounted() {
       if (this.hex) this.makePalettes()
-  }
+  },
+  watch: {
+    hex() {
+        this.makePalettes()
+    }
+  },
 }
 </script>
 
