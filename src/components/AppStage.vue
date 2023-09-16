@@ -124,6 +124,15 @@ export default {
 </script>
 
 <style>
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  border-top: 10px solid var(--primary);
+}
+
 .color-display {
   padding: 4rem;
   margin: 2rem auto 0 auto;
