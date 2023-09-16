@@ -45,7 +45,6 @@
       </div>
     </section>
 
-
     <div 
       class="color-display" 
       :style="colorDisplay"
@@ -104,17 +103,32 @@ export default {
         this.hue = this.getRandInt(0, 359)
       }
 
-      if (sQuery) this.saturation = Number(sQuery)
-      if (lQuery) this.lightness = Number(lQuery)
+      if (sQuery) {
+        this.saturation = Number(sQuery)
+      } else {
+        this.updateSatQueryString(90)
+      }
+
+      if (lQuery) {
+        this.lightness = Number(lQuery)
+      } else {
+        this.updateLitQueryString(this.lightness)
+      }
     },
     updateHue(e) {
-      this.hue = Number(e.target.value);
+      this.hue = Number(e.target.value)
+
+      this.updateHueQueryString(this.hue)
     },
     updateSat(e) {
-      this.saturation = Number(e.target.value);
+      this.saturation = Number(e.target.value)
+
+      this.updateSatQueryString(this.saturation)
     },
     updateLight(e) {
-      this.lightness = Number(e.target.value);
+      this.lightness = Number(e.target.value)
+
+      this.updateLitQueryString(this.lightness)
     },
     getRandInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)
@@ -172,7 +186,22 @@ export default {
       const hueInput = document.getElementById('hue-input')
 
       if (hueInput) hueInput.focus()
-    }
+    },
+    updateHueQueryString(val) {
+      let queryParams = new URLSearchParams(window.location.search);
+      queryParams.set(`hue`, val);
+      history.replaceState(null, null, `?${queryParams.toString()}`);
+    },
+    updateSatQueryString(val) {
+      let queryParams = new URLSearchParams(window.location.search);
+      queryParams.set(`sat`, val);
+      history.replaceState(null, null, `?${queryParams.toString()}`);
+    },
+    updateLitQueryString(val) {
+      let queryParams = new URLSearchParams(window.location.search);
+      queryParams.set(`lit`, val);
+      history.replaceState(null, null, `?${queryParams.toString()}`);
+    },
   },
   computed: {
     colorDisplay() {
@@ -203,12 +232,18 @@ export default {
     },
     hue() {
       if (this.hue > maxHue) this.hue = maxHue
+
+      this.updateHueQueryString(this.hue)
     },
     saturation() {
       if (this.saturation > maxSat) this.saturation = maxSat
+
+      this.updateSatQueryString(this.saturation)
     },
     lightness() {
       if (this.lightness > maxLit) this.lightness = maxLit
+
+      this.updateLitQueryString(this.lightness)
     },
   }
 }
