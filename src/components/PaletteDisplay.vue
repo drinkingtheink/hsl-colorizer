@@ -96,19 +96,25 @@
         </div>
     </div>
 
-    <div v-if="toPurpleArray.length > 0" class="gallery-wrapper custom">
+    <div class="gallery-wrapper custom">
         <h3>Make Your Own Mix</h3>
         <div v-if="!customMixColor" class="capture-color">
             <label for="custom-color-input">Pick a color to mix with your selection</label>
             <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" />
         </div>
-        <div v-else class="gallery">
-            <span
-                class="swatch"
-                v-for="swatch in toPurpleArray"
-                :key="swatch"
-                :style="`background-color: ${swatch}`"
-            ><span>{{ swatch }}</span></span>
+        <div v-if="customMixColor" class="color-captured">
+            <div class="gallery">
+                <span
+                    class="swatch"
+                    v-for="swatch in customArray"
+                    :key="swatch"
+                    :style="`background-color: ${swatch}`"
+                ><span>{{ swatch }}</span></span>
+            </div>
+            <div class="change-color">
+                <label for="custom-color-input">Choose Another Color to Change Your Mix</label>
+                <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" :value="customMixColor" />
+            </div>
         </div>
     </div>
   </section>
@@ -133,6 +139,7 @@ export default {
           toGreenArray: [],
           toOrangeArray: [],
           toPurpleArray: [],
+          customArray: [],
           customMixColor: null,
       }
   },
@@ -211,12 +218,14 @@ export default {
         const otherColor = chroma(this.customMixColor)
 
         for (var i = 0; i < this.steps; i++) {
-            this.toPurpleArray[i] = chroma.mix(chromaColor, otherColor, i * 0.25)
+            this.customArray[i] = chroma.mix(chromaColor, otherColor, i * 0.25)
         }
     },
   },
   mounted() {
       if (this.hex) this.makePalettes(this.hex)
+
+      document.getElementById('custom-color-input').value = chroma.random()
   },
   watch: {
     hex() {
@@ -260,20 +269,29 @@ export default {
 
 .swatch span {
     display: block;
-    background-color: rgba(0,0,0,0.8);
+    background-color: var(--transBg);
     color: white;
     margin-top: 100%;
 }
 
 .gallery-wrapper.custom {
-    background-color: var(--flatBg);
+    background-color: var(--transBg);
+    color: white;
     margin-top: 2rem;
     padding: 0 0 2rem 0;
     width: 100%;
-    font-size: 140%;
+    border-radius: var(--borRad);
 }
 
-.gallery-wrapper.custom input {
-    width: 400px;
+.gallery-wrapper.custom .capture-color input {
+    width: var(--customMixInputWidth);
+}
+
+.gallery-wrapper.custom .color-captured input {
+    width: var(--customMixInputWidth);
+}
+
+.change-color {
+    margin-top: 2rem;
 }
 </style>

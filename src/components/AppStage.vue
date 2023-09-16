@@ -129,6 +129,8 @@ export default {
 :root {
   --flatBg: #e1e1e1;
   --transBg: rgba(0,0,0,0.7);
+  --customMixInputWidth: 300px;
+  --borRad: 10px;
 }
 
 html, body {
