@@ -1,64 +1,75 @@
 <template>
   <section class="palette-stage">
-    <h2>Palettes:</h2>
-    <div v-if="lightArray.length > 0" class="gallery light">
+    <div v-if="lightArray.length > 0" class="gallery-wrapper light">
         <h3>Trending Lighter</h3>
-        <span
-            class="swatch"
-            v-for="swatch in lightArray"
-            :key="swatch"
-            :style="`background-color: ${swatch}`"
-        />
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in lightArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            />
+        </div>
     </div>
 
-    <div v-if="darkArray.length > 0" class="gallery dark">
+    <div v-if="darkArray.length > 0" class="gallery-wrapper dark">
         <h3>Trending Darker</h3>
-        <span
-            class="swatch"
-            v-for="swatch in darkArray"
-            :key="swatch"
-            :style="`background-color: ${swatch}`"
-        />
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in darkArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            />
+        </div>
     </div>
 
-    <div v-if="toBlueArray.length > 0" class="gallery to-blue">
+    <div v-if="toBlueArray.length > 0" class="gallery-wrapper to-blue">
         <h3>Mix to Blue</h3>
-        <span
-            class="swatch"
-            v-for="swatch in toBlueArray"
-            :key="swatch"
-            :style="`background-color: ${swatch}`"
-        />
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toBlueArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            />
+        </div>
     </div>
 
-    <div v-if="toRedArray.length > 0" class="gallery to-red">
+    <div v-if="toRedArray.length > 0" class="gallery-wrapper to-red">
         <h3>Mix to Red</h3>
-        <span
-            class="swatch"
-            v-for="swatch in toRedArray"
-            :key="swatch"
-            :style="`background-color: ${swatch}`"
-        />
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toRedArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            />
+        </div>
     </div>
 
-    <div v-if="toYellowArray.length > 0" class="gallery to-yellow">
+    <div v-if="toYellowArray.length > 0" class="gallery-wrapper to-yellow">
         <h3>Mix to Yellow</h3>
-        <span
-            class="swatch"
-            v-for="swatch in toYellowArray"
-            :key="swatch"
-            :style="`background-color: ${swatch}`"
-        />
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toYellowArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            />
+        </div>
     </div>
 
-    <div v-if="randomArray.length > 0" class="gallery random">
+    <div v-if="randomArray.length > 0" class="gallery-wrapper random">
         <h3>Random Selection</h3>
-        <span
-            class="swatch"
-            v-for="swatch in randomArray"
-            :key="swatch"
-            :style="`background-color: ${swatch}`"
-        />
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in randomArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            />
+        </div>
     </div>
   </section>
 </template>
@@ -117,21 +128,21 @@ export default {
         const chromaColor = chroma(this.hex)
 
         for (var i = 0; i < this.steps; i++) {
-            this.toBlueArray[i] = chroma.mix(chromaColor, 'blue', i * 0.35)
+            this.toBlueArray[i] = chroma.mix(chromaColor, 'blue', i * 0.25)
         }
     },
     makeToRedArray() {
         const chromaColor = chroma(this.hex)
 
         for (var i = 0; i < this.steps; i++) {
-            this.toRedArray[i] = chroma.mix(chromaColor, 'red', i * 0.35)
+            this.toRedArray[i] = chroma.mix(chromaColor, 'red', i * 0.25)
         }
     },
     makeToYellowArray() {
         const chromaColor = chroma(this.hex)
 
         for (var i = 0; i < this.steps; i++) {
-            this.toYellowArray[i] = chroma.mix(chromaColor, 'yellow', i * 0.35)
+            this.toYellowArray[i] = chroma.mix(chromaColor, 'yellow', i * 0.25)
         }
     },
   },
@@ -147,6 +158,18 @@ export default {
 </script>
 
 <style>
+.palette-stage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery-wrapper {
+    margin: 10px;
+}
+
 .gallery {
     display: flex;
     margin: 0 auto;
