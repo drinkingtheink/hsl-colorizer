@@ -207,6 +207,7 @@ main {
   top: 0;
   background-color: rgba(0,0,0,0.5);
   padding: 10px 0;
+  z-index: 100000000;
 }
 
 .config div {
