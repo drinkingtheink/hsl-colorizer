@@ -46,7 +46,18 @@
     </section>
 
 
-    <div class="color-display" :style="colorDisplay"><p><strong>HSL:</strong> <span class="hue-display">{{ hue }}°</span> <span class="sat-display">{{ saturation }}%</span> <span class="light-display">{{ lightness }}%</span></p></div>
+    <div 
+      class="color-display" 
+      :style="colorDisplay"
+      @click="focusHueInput"
+    >
+      <p>
+        <strong>HSL:</strong> 
+        <span class="hue-display">{{ hue }}°</span> 
+        <span class="sat-display">{{ saturation }}%</span> 
+        <span class="light-display">{{ lightness }}%</span>
+      </p>
+    </div>
 
     <div class="color-variants">
       <span class="hex"><strong>HEX:</strong> <span class="hex-display">{{ hex }}</span></span>
@@ -134,6 +145,11 @@ export default {
         else {
             return 'dark';
         }
+    },
+    focusHueInput() {
+      const hueInput = document.getElementById('hue-input')
+
+      if (hueInput) hueInput.focus()
     }
   },
   computed: {

@@ -119,6 +119,78 @@
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
+
+    <div v-if="toBlueGreenArray.length > 0" class="gallery-wrapper to-blue-green">
+        <h3>Mix to Blue-Green</h3>
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toBlueGreenArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            ><span>{{ swatch }}</span></span>
+        </div>
+    </div>
+
+    <div v-if="toBlueVioletArray.length > 0" class="gallery-wrapper to-blue-violet">
+        <h3>Mix to Blue-Violet</h3>
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toBlueVioletArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            ><span>{{ swatch }}</span></span>
+        </div>
+    </div>
+
+    <div v-if="toRedOrangeArray.length > 0" class="gallery-wrapper to-red-orange">
+        <h3>Mix to Red-Orange</h3>
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toRedOrangeArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            ><span>{{ swatch }}</span></span>
+        </div>
+    </div>
+
+    <div v-if="toRedVioletArray.length > 0" class="gallery-wrapper to-red-violet">
+        <h3>Mix to Red-Violet</h3>
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toRedVioletArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            ><span>{{ swatch }}</span></span>
+        </div>
+    </div>
+
+    <div v-if="toYellowOrangeArray.length > 0" class="gallery-wrapper to-yellow-orange">
+        <h3>Mix to Yellow-Orange</h3>
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toYellowOrangeArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            ><span>{{ swatch }}</span></span>
+        </div>
+    </div>
+
+    <div v-if="toYellowGreenArray.length > 0" class="gallery-wrapper to-yellow-green">
+        <h3>Mix to Yellow-Green</h3>
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in toYellowGreenArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            ><span>{{ swatch }}</span></span>
+        </div>
+    </div>
   </section>
 </template>
 
@@ -141,6 +213,12 @@ export default {
           toGreenArray: [],
           toOrangeArray: [],
           toPurpleArray: [],
+          toBlueGreenArray: [],
+          toBlueVioletArray: [],
+          toRedOrangeArray: [],
+          toRedVioletArray: [],
+          toYellowOrangeArray: [],
+          toYellowGreenArray: [],
           customArray: [],
           customMixColor: null,
       }
@@ -155,6 +233,12 @@ export default {
         this.makeToGreenArray(color)
         this.makeToOrangeArray(color)
         this.makeToPurpleArray(color)
+        this.makeToBlueGreenArray(color)
+        this.makeToBlueVioletArray(color)
+        this.makeToRedOrangeArray(color)
+        this.makeToRedVioletArray(color)
+        this.makeToYellowOrangeArray(color)
+        this.makeToYellowGreenArray(color)
     },
     makeDarkArray(color) {
         const chromaColor = chroma(color)
@@ -210,6 +294,48 @@ export default {
 
         for (var i = 0; i < this.steps; i++) {
             this.toPurpleArray[i] = chroma.mix(chromaColor, 'purple', i * 0.25)
+        }
+    },
+    makeToBlueGreenArray(color) {
+        const chromaColor = chroma(color)
+
+        for (var i = 0; i < this.steps; i++) {
+            this.toBlueGreenArray[i] = chroma.mix(chromaColor, '#088f8f', i * 0.25)
+        }
+    },
+    makeToBlueVioletArray(color) {
+        const chromaColor = chroma(color)
+
+        for (var i = 0; i < this.steps; i++) {
+            this.toBlueVioletArray[i] = chroma.mix(chromaColor, 'BlueViolet', i * 0.25)
+        }
+    },
+    makeToRedOrangeArray(color) {
+        const chromaColor = chroma(color)
+
+        for (var i = 0; i < this.steps; i++) {
+            this.toRedOrangeArray[i] = chroma.mix(chromaColor, '#FF4433', i * 0.25)
+        }
+    },
+    makeToRedVioletArray(color) {
+        const chromaColor = chroma(color)
+
+        for (var i = 0; i < this.steps; i++) {
+            this.toRedVioletArray[i] = chroma.mix(chromaColor, '#A50055', i * 0.25)
+        }
+    },
+    makeToYellowOrangeArray(color) {
+        const chromaColor = chroma(color)
+
+        for (var i = 0; i < this.steps; i++) {
+            this.toYellowOrangeArray[i] = chroma.mix(chromaColor, '#FFAE42', i * 0.25)
+        }
+    },
+    makeToYellowGreenArray(color) {
+        const chromaColor = chroma(color)
+
+        for (var i = 0; i < this.steps; i++) {
+            this.toYellowGreenArray[i] = chroma.mix(chromaColor, 'Yellowgreen', i * 0.25)
         }
     },
     handleCustomColorInput(e) {
