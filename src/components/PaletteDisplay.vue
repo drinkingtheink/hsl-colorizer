@@ -20,6 +20,16 @@
             :style="`background-color: ${swatch}`"
         />
     </div>
+
+    <div v-if="randomArray.length > 0" class="gallery random">
+        <h3>Random Selection</h3>
+        <span
+            class="swatch"
+            v-for="swatch in randomArray"
+            :key="swatch"
+            :style="`background-color: ${swatch}`"
+        />
+    </div>
   </section>
 </template>
 
@@ -36,12 +46,14 @@ export default {
           steps: 5,
           darkArray: [],
           lightArray: [],
+          randomArray: [],
       }
   },
   methods: {
     makePalettes() {
         this.makeDarkArray();
         this.makeLightArray();
+        this.makeRandomArray();
     },
     makeDarkArray() {
         const chromaColor = chroma(this.hex)
@@ -56,6 +68,13 @@ export default {
         for (var i = 0; i < this.steps; i++) {
             this.lightArray[i] = chromaColor.brighten(i)
         }
+    },
+    makeRandomArray() {
+        for (var i = 0; i < this.steps; i++) {
+            this.randomArray[i] = chroma.random()
+        }
+
+        this.randomArray[0] = this.hex
     },
   },
   mounted() {
@@ -72,6 +91,9 @@ export default {
 <style>
 .gallery {
     display: flex;
+    margin: 0 auto;
+    max-width: 800px;
+    justify-content: center;
 }
 
 .swatch {
