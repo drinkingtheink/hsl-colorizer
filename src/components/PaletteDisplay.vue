@@ -33,6 +33,9 @@
                     :style="`background-color: ${swatch}`"
                 ><span>{{ swatch }}</span></span>
             </div>
+            <div v-if="customSelectedContrast" class="color-meta">
+                <p><strong>CONTRAST:</strong> {{ customSelectedContrast }}</p>
+            </div>
             <div class="change-color">
                 <label for="custom-color-input">Choose Another Color to Change Your Mix</label>
                 <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" :value="customMixColor" />
@@ -217,6 +220,17 @@ export default {
           customMixColor: null,
       }
   },
+  computed: {
+      customSelectedContrast() {
+          let contrast = null
+
+          if (this.customMixColor) {
+              contrast = chroma.contrast(this.hex, this.customMixColor).toFixed(1)
+          }
+
+          return contrast
+      }
+  },
   methods: {
     makePalettes(color) {
         this.makeDarkArray(color)
@@ -377,6 +391,15 @@ export default {
 </script>
 
 <style>
+.color-meta {
+    margin: 2rem 0 0 0;
+}
+
+.color-meta p {
+    margin: 0;
+    padding: 0;
+}
+
 .palette-stage {
     display: flex;
     flex-wrap: wrap;
