@@ -3,6 +3,7 @@
     <h2>HSL Color Explorer</h2>
 
     <section class="config">
+      <div class="small-color-display" />
       <div class="wrapper hue">
         <input 
           type="range" 
@@ -205,5 +206,14 @@ main {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border-radius: 10px;
+}
+
+.config .small-color-display {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: 4px solid rgba(0, 0, 0, 0.4);
+  margin-top: 18px;
 }
 </style>
