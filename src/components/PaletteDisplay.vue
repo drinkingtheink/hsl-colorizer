@@ -1,5 +1,22 @@
 <template>
   <section class="palette-stage">
+    <div v-if="lightArray.length > 0 && darkArray.length > 0" class="gallery-wrapper light-to-dark">
+        <div class="gallery">
+            <span
+                class="swatch"
+                v-for="swatch in lightArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            ><span>{{ swatch }}</span></span>
+            <span
+                class="swatch"
+                v-for="swatch in darkArray"
+                :key="swatch"
+                :style="`background-color: ${swatch}`"
+            ><span>{{ swatch }}</span></span>
+        </div>
+    </div>
+
     <div class="gallery-wrapper custom">
         <h3>Make Your Own Mix</h3>
         <div v-if="!customMixColor" class="capture-color">
@@ -21,24 +38,6 @@
                 <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" :value="customMixColor" />
                 <button @click="clearCustomColor">Clear Selection</button>
             </div>
-        </div>
-    </div>
-
-    <div v-if="lightArray.length > 0 && darkArray.length > 0" class="gallery-wrapper light-to-dark">
-        <h3>Light to Dark</h3>
-        <div class="gallery">
-            <span
-                class="swatch"
-                v-for="swatch in lightArray"
-                :key="swatch"
-                :style="`background-color: ${swatch}`"
-            ><span>{{ swatch }}</span></span>
-            <span
-                class="swatch"
-                v-for="swatch in darkArray"
-                :key="swatch"
-                :style="`background-color: ${swatch}`"
-            ><span>{{ swatch }}</span></span>
         </div>
     </div>
 
