@@ -64,7 +64,7 @@
       <span class="rgb"><strong>RGB:</strong> <span class="rgb-display">{{ rgb }}</span></span>
     </div>
 
-    <PaletteDisplay :hex="hex"/>
+    <PaletteDisplay :hex="hex" :focusHueInput="focusHueInput" />
   </main>
 </template>
 

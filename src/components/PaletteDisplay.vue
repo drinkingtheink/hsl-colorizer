@@ -3,7 +3,7 @@
     <div class="gallery-wrapper custom">
         <h3>Make Your Own Mix</h3>
         <div v-if="!customMixColor" class="capture-color">
-            <p class="romance"><span class="selected"/><span class="and">&</span><span class="q-mark">?</span><span class="q-mark">?</span><span class="q-mark">?</span></p>
+            <p class="romance"><span class="selected" @click="focusHueInput" /><span class="and">&</span><span class="q-mark">?</span><span class="q-mark">?</span><span class="q-mark">?</span></p>
             <label for="custom-color-input">Pick a color below to mix with your selection</label>
             <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" />
         </div>
@@ -24,8 +24,8 @@
         </div>
     </div>
 
-    <div v-if="lightArray.length > 0" class="gallery-wrapper light">
-        <h3>Trending Lighter</h3>
+    <div v-if="lightArray.length > 0 && darkArray.length > 0" class="gallery-wrapper light-to-dark">
+        <h3>Light to Dark</h3>
         <div class="gallery">
             <span
                 class="swatch"
@@ -33,12 +33,6 @@
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
             ><span>{{ swatch }}</span></span>
-        </div>
-    </div>
-
-    <div v-if="darkArray.length > 0" class="gallery-wrapper dark">
-        <h3>Trending Darker</h3>
-        <div class="gallery">
             <span
                 class="swatch"
                 v-for="swatch in darkArray"
@@ -200,7 +194,8 @@ import chroma from "chroma-js";
 export default {
   name: 'PaletteDisplay',
   props: {
-      hex: String
+      hex: String,
+      focusHueInput: Function,
   },
   data() {
       return {
@@ -425,13 +420,13 @@ export default {
     color: white;
     margin-top: 2rem;
     padding: 0 0 2rem 0;
-    width: 100%;
+    width: 80%;
     border-radius: var(--borRad);
     position: relative;
 }
 
-.gallery-wrapper.custom .capture-color {
-
+.gallery-wrapper.light-to-dark {
+    width: 80%;
 }
 
 .gallery-wrapper.custom .capture-color input {
