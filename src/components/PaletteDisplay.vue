@@ -34,7 +34,7 @@
                 ><span>{{ swatch }}</span></span>
             </div>
             <div v-if="customSelectedContrast" class="color-meta">
-                <p><strong>CONTRAST:</strong> {{ customSelectedContrast }}</p>
+                <p :class="{ good: a11yHappy }"><strong>CONTRAST:</strong> {{ customSelectedContrast }}</p>
             </div>
             <div class="change-color">
                 <label for="custom-color-input">Choose Another Color to Change Your Mix</label>
@@ -229,6 +229,9 @@ export default {
           }
 
           return contrast
+      },
+      a11yHappy() {
+          return this.customSelectedContrast ? this.customSelectedContrast > 4.4 : false
       }
   },
   methods: {
@@ -398,6 +401,10 @@ export default {
 .color-meta p {
     margin: 0;
     padding: 0;
+}
+
+.color-meta p.good {
+    color: lime;
 }
 
 .palette-stage {
