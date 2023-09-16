@@ -1,6 +1,76 @@
 <template>
   <section class="colors-stage">
-    <h2>Colors Time!</h2>
+    <h3 class="section-banner">Color Collections</h3>
+    
+    <div class="complimentary">
+        <div v-if="complimentary.length > 0" class="gallery-wrapper complimentary">
+            <h3>Complimentary</h3>
+            <div class="gallery">
+                <span
+                    class="swatch"
+                    v-for="swatch in complimentary"
+                    :key="swatch"
+                    :style="`background-color: ${swatch}`"
+                ><span>{{ swatch }}</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="split">
+        <div v-if="complimentary.length > 0" class="gallery-wrapper split">
+            <h3>Split</h3>
+            <div class="gallery">
+                <span
+                    class="swatch"
+                    v-for="swatch in split"
+                    :key="swatch"
+                    :style="`background-color: ${swatch}`"
+                ><span>{{ swatch }}</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="triad">
+        <div v-if="complimentary.length > 0" class="gallery-wrapper triad">
+            <h3>Triad</h3>
+            <div class="gallery">
+                <span
+                    class="swatch"
+                    v-for="swatch in triad"
+                    :key="swatch"
+                    :style="`background-color: ${swatch}`"
+                ><span>{{ swatch }}</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tetrad">
+        <div v-if="complimentary.length > 0" class="gallery-wrapper tetrad">
+            <h3>Tetrad</h3>
+            <div class="gallery">
+                <span
+                    class="swatch"
+                    v-for="swatch in tetrad"
+                    :key="swatch"
+                    :style="`background-color: ${swatch}`"
+                ><span>{{ swatch }}</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="analagous">
+        <div v-if="complimentary.length > 0" class="gallery-wrapper analagous">
+            <h3>Analagous</h3>
+            <div class="gallery">
+                <span
+                    class="swatch"
+                    v-for="swatch in analagous"
+                    :key="swatch"
+                    :style="`background-color: ${swatch}`"
+                ><span>{{ swatch }}</span></span>
+            </div>
+        </div>
+    </div>
   </section>
 </template>
 
@@ -17,11 +87,11 @@ export default {
   },
   data() {
       return {
-          complimentary: null,
-          split: null,
-          triad: null,
-          tetrad: null,
-          analogous: null,
+          complimentary: [],
+          split: [],
+          triad: [],
+          tetrad: [],
+          analogous: [],
       }
   },
   methods: {

@@ -323,4 +323,10 @@ main {
   border: 4px solid rgba(0, 0, 0, 0.4);
   margin-top: 18px;
 }
+
+.section-banner {
+  width: 100vw;
+  background-color: var(--transBg);
+  color: white;
+}
 </style>
