@@ -60,6 +60,11 @@
     <div class="color-variants">
       <span class="hex"><strong>HEX:</strong> <span class="hex-display">{{ hex }}</span></span>
       <span class="rgb"><strong>RGB:</strong> <span class="rgb-display">{{ rgb }}</span></span>
+      <button 
+        id="get-random-color" 
+        @click="randomizeHue"
+        :class="lightOrDark(hex)"
+      >Random Color</button>
     </div>
 
     <PaletteDisplay :hex="hex" :focusHueInput="focusHueInput" />
@@ -202,6 +207,9 @@ export default {
       queryParams.set(`lit`, val);
       history.replaceState(null, null, `?${queryParams.toString()}`);
     },
+    randomizeHue() {
+      this.hue = this.getRandInt(0, maxHue)
+    }
   },
   computed: {
     colorDisplay() {
@@ -397,5 +405,17 @@ main {
   color: white;
   padding: 0.5rem 0;
   border-top: 4px solid var(--primary);
+}
+
+#get-random-color {
+  color: white;
+}
+
+#get-random-color.light:hover {
+  color: var(--darkGrey);
+}
+
+#get-random-color:hover {
+  background-color: var(--primary)
 }
 </style>
