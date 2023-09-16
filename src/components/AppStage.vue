@@ -12,7 +12,7 @@
           max="359" 
           @input="updateHue"
         />
-        <label for="hue-input"><strong>Hue</strong> ({{ hue }})</label>
+        <label for="hue-input"><strong>Hue</strong> {{ hue }}°</label>
       </div>
 
       <div class="wrapper sat">
@@ -25,7 +25,7 @@
           value="90"
           @input="updateSat"
         />
-        <label for="sat-input"><strong>Saturation</strong> ({{ saturation }})</label>
+        <label for="sat-input"><strong>Saturation</strong> {{ saturation }}%</label>
       </div>
 
       <div class="wrapper light">
@@ -38,7 +38,7 @@
           value="50" 
           @input="updateLight"
         />
-        <label for="light-input"><strong>Lightness</strong> ({{ lightness }})</label>
+        <label for="light-input"><strong>Lightness</strong> {{ lightness }}%</label>
       </div>
     </section>
 
@@ -128,15 +128,17 @@ export default {
 }
 
 .color-display p {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 5px 10px;
   border-radius: 10px;
+  font-size: 120%;
 }
 
 .color-display span {
   width:40px;
   display: inline-block;
+  margin-right: 10px;
 }
 
 .color-variants {

@@ -8,7 +8,7 @@
                 v-for="swatch in lightArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            />
+            >{{ swatch }}</span>
         </div>
     </div>
 
@@ -20,7 +20,7 @@
                 v-for="swatch in darkArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            />
+            >{{ swatch }}</span>
         </div>
     </div>
 
@@ -32,7 +32,7 @@
                 v-for="swatch in toBlueArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            />
+            >{{ swatch }}</span>
         </div>
     </div>
 
@@ -44,7 +44,7 @@
                 v-for="swatch in toRedArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            />
+            >{{ swatch }}</span>
         </div>
     </div>
 
@@ -56,7 +56,7 @@
                 v-for="swatch in toYellowArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            />
+            >{{ swatch }}</span>
         </div>
     </div>
 
@@ -162,7 +162,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -178,9 +178,8 @@ export default {
 }
 
 .swatch {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 5px;
+    width: 100px;
+    height: 100px;
+    /* border-radius: 50%; */
 }
 </style>
