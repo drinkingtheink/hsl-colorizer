@@ -247,6 +247,9 @@ export default {
         for (var i = 0; i < this.steps; i++) {
             this.lightArray[i] = chromaColor.brighten(i)
         }
+
+        this.lightArray.reverse()
+        this.lightArray.pop()
     },
     makeToBlueArray(color) {
         const chromaColor = chroma(color)
@@ -404,12 +407,12 @@ export default {
 .swatch:hover {
     transform: scale(1.1);
     transition: all 0.2s;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    box-shadow: var(----boxShad);
 }
 
 .swatch span {
     display: block;
-    background-color: var(--transBg);
+    background-color: var(--darkGrey);
     color: white;
     margin-top: 100%;
 }
@@ -426,6 +429,18 @@ export default {
 
 .gallery-wrapper.light-to-dark {
     width: 80%;
+    margin-top: 2rem;
+}
+
+.light-to-dark .swatch:nth-child(5) {
+    transform: scale(1.15);
+    margin-top: -5px;
+    transition: all 0.5s;
+    box-shadow: var(--boxShad);
+}
+
+.light-to-dark .swatch:nth-child(5):hover {
+    transform: scale(1.35);
 }
 
 .gallery-wrapper.custom .capture-color input {

@@ -185,11 +185,13 @@ export default {
 :root {
   --flatBg: #e1e1e1;
   --transBg: rgba(0,0,0,0.7);
+  --boxShad: 0 0 10px var(--transBg);
   --transBgW: rgba(255,255,255,0.7);
   --customMixInputWidth: 300px;
   --borRad: 10px;
   --pionterDim: 200px;
   --customMixCircDim: 50px;
+  --darkGrey: #222;
 }
 
 html, body {
