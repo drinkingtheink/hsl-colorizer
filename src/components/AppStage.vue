@@ -2,49 +2,52 @@
   <main>
     <h2>Make a Color in HSL</h2>
 
+    <section class="config">
+      <div class="wrapper hue">
+        <input 
+          type="range" 
+          id="hue-input" 
+          name="hue-input" 
+          min="0" 
+          max="359" 
+          @input="updateHue"
+        />
+        <label for="hue-input"><strong>Hue</strong> ({{ hue }})</label>
+      </div>
+
+      <div class="wrapper sat">
+        <input 
+          type="range" 
+          id="sat-input" 
+          name="sat-input" 
+          min="0" 
+          max="100" 
+          value="90"
+          @input="updateSat"
+        />
+        <label for="sat-input"><strong>Saturation</strong> ({{ saturation }})</label>
+      </div>
+
+      <div class="wrapper light">
+        <input 
+          type="range" 
+          id="light-input" 
+          name="light-input" 
+          min="0" 
+          max="100" 
+          value="50" 
+          @input="updateLight"
+        />
+        <label for="light-input"><strong>Lightness</strong> ({{ lightness }})</label>
+      </div>
+    </section>
+
+
     <div class="color-display" :style="colorDisplay"><p><strong>HSL:</strong> {{ hue }}° {{ saturation }}% {{ lightness }}%</p></div>
 
     <div class="color-variants">
       <span><strong>HEX:</strong> {{ hex }}</span>
       <span><strong>RGB:</strong> {{ rgb }}</span>
-    </div>
-
-    <div class="wrapper hue">
-      <input 
-        type="range" 
-        id="hue-input" 
-        name="hue-input" 
-        min="0" 
-        max="359" 
-        @input="updateHue"
-      />
-      <label for="hue-input">Hue ({{ hue }})</label>
-    </div>
-
-    <div class="wrapper sat">
-      <input 
-        type="range" 
-        id="sat-input" 
-        name="sat-input" 
-        min="0" 
-        max="100" 
-        value="90"
-        @input="updateSat"
-      />
-      <label for="sat-input">Saturation ({{ saturation }})</label>
-    </div>
-
-    <div class="wrapper light">
-      <input 
-        type="range" 
-        id="light-input" 
-        name="light-input" 
-        min="0" 
-        max="100" 
-        value="50" 
-        @input="updateLight"
-      />
-      <label for="light-input">Lightness ({{ lightness }})</label>
     </div>
 
     <PaletteDisplay :hex="hex"/>
@@ -126,6 +129,7 @@ export default {
   margin: 2rem auto 0 auto;
   width: 20rem;
   border-radius: 10px;
+  border: 10px solid rgba(0,0,0,0.3);
 }
 
 .color-display p {
@@ -144,5 +148,15 @@ export default {
 
 .color-variants span {
   margin-right: 10px;
+}
+
+.config {
+  display: flex;
+  justify-content: center;
+}
+
+.config div {
+  margin-right: 10px;
+  width: 140px;
 }
 </style>
