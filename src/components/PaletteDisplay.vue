@@ -239,6 +239,10 @@ export default {
   watch: {
     hex() {
         this.makePalettes(this.hex)
+
+        if (this.customMixColor) {
+            this.makeCustomMixArray(this.customMixColor, this.hex)
+        }
     },
     customMixColor() {
         if (this.customMixColor !== 'undefined') {
