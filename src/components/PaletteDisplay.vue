@@ -1,14 +1,18 @@
 <template>
   <section class="palette-stage">
     <h2>Palettes:</h2>
-
-    <div v-if="darkArray.length > 0" class="gallery dark">
+    <div v-if="lightArray.length > 0" class="gallery light">
+        <h3>Trending Lighter</h3>
         <span
             class="swatch"
             v-for="swatch in lightArray"
             :key="swatch"
             :style="`background-color: ${swatch}`"
         />
+    </div>
+
+    <div v-if="darkArray.length > 0" class="gallery dark">
+        <h3>Trending Darker</h3>
         <span
             class="swatch"
             v-for="swatch in darkArray"
