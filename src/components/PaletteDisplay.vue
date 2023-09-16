@@ -8,7 +8,7 @@
                 v-for="swatch in lightArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            >{{ swatch }}</span>
+            ><span>{{ swatch }}</span></span>
         </div>
     </div>
 
@@ -20,7 +20,7 @@
                 v-for="swatch in darkArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            >{{ swatch }}</span>
+            ><span>{{ swatch }}</span></span>
         </div>
     </div>
 
@@ -32,7 +32,7 @@
                 v-for="swatch in toBlueArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            >{{ swatch }}</span>
+            ><span>{{ swatch }}</span></span>
         </div>
     </div>
 
@@ -44,7 +44,7 @@
                 v-for="swatch in toRedArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            >{{ swatch }}</span>
+            ><span>{{ swatch }}</span></span>
         </div>
     </div>
 
@@ -56,7 +56,7 @@
                 v-for="swatch in toYellowArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
-            >{{ swatch }}</span>
+            ><span>{{ swatch }}</span></span>
         </div>
     </div>
 
@@ -164,6 +164,7 @@ export default {
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 0 10rem 0;
 }
 
 .gallery-wrapper {
@@ -181,5 +182,12 @@ export default {
     width: 100px;
     height: 100px;
     /* border-radius: 50%; */
+}
+
+.swatch span {
+    display: block;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    margin-top: 100%;
 }
 </style>

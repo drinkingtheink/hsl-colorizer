@@ -115,6 +115,11 @@ export default {
     this.hue = this.getRandInt(0, 359);
     document.getElementById('hue-input').value = this.hue;
   },
+  watch: {
+    hex() {
+      document.documentElement.style.setProperty('--primary', this.hex);
+    }
+  }
 }
 </script>
 
