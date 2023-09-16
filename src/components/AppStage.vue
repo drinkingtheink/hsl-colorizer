@@ -330,5 +330,6 @@ main {
   background-color: var(--transBg);
   color: white;
   padding: 0.5rem 0;
+  border-top: 4px solid var(--primary);
 }
 </style>
