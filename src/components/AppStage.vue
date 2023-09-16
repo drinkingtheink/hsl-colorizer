@@ -204,7 +204,9 @@ main {
   display: flex;
   justify-content: center;
   position: sticky;
-  top: 10px;
+  top: 0;
+  background-color: rgba(0,0,0,0.3);
+  padding: 10px 0;
 }
 
 .config div {
