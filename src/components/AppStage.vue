@@ -67,7 +67,11 @@
       >Random Color</button>
     </div>
 
-    <PaletteDisplay :hex="hex" :focusHueInput="focusHueInput" />
+    <PaletteDisplay 
+      :hex="hex" 
+      :focusHueInput="focusHueInput" 
+      :lightOrDark="lightOrDark"
+    />
     <ColorDisplay :hex="hex" :hue="hue" :sat="saturation" :light="lightness" />
   </main>
 </template>

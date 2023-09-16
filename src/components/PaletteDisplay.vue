@@ -39,7 +39,11 @@
             <div class="change-color">
                 <label for="custom-color-input">Choose Another Color to Change Your Mix</label>
                 <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" :value="customMixColor" />
-                <button @click="clearCustomColor">Clear Selection</button>
+                <button 
+                    @click="clearCustomColor"
+                    :class="lightOrDark(hex)"
+                    id="clear-custom-color"
+                >Clear Selection</button>
             </div>
         </div>
     </div>
@@ -198,6 +202,7 @@ export default {
   props: {
       hex: String,
       focusHueInput: Function,
+      lightOrDark: Function,
   },
   data() {
       return {
@@ -507,5 +512,14 @@ export default {
 
 .romance .and {
     margin: 0 10px;
+}
+
+#clear-custom-color {
+  color: white;
+  margin-left: 10px;
+}
+
+#clear-custom-color.light:hover {
+  color: var(--darkGrey);
 }
 </style>
