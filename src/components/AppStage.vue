@@ -409,6 +409,7 @@ main {
 
 #get-random-color {
   color: white;
+  margin-left: 10px;
 }
 
 #get-random-color.light:hover {
