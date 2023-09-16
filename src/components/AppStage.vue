@@ -1,6 +1,8 @@
 <template>
   <main>
-    <h2 :class="lightOrDark(hex)">HSL Color Explorer</h2>
+    <div class="arrow-down" />
+
+    <h2 class="app-title" :class="lightOrDark(hex)">HSL Color Explorer</h2>
 
     <section class="config">
       <div class="small-color-display" />
@@ -164,12 +166,12 @@ export default {
 </script>
 
 <style>
-
 :root {
   --flatBg: #e1e1e1;
   --transBg: rgba(0,0,0,0.7);
   --customMixInputWidth: 300px;
   --borRad: 10px;
+  --pionterDim: 300px;
 }
 
 html, body {
@@ -179,6 +181,35 @@ html, body {
 
 main {
   border-top: 10px solid var(--primary);
+}
+
+.app-title {
+  max-width: 300px;
+  margin: 1rem auto;
+  padding: 10px;
+  position:relative;
+  z-index: 2;
+  transition: all 1s;
+}
+
+.arrow-down {
+  margin: 0 auto;
+  width: 0; 
+  height: 0; 
+  border-left: var(--pionterDim) solid transparent;
+  border-right: var(--pionterDim) solid transparent;
+  border-top: var(--pionterDim) solid var(--primary);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.app-title.dark {
+  color: white;
+  text-shadow: 0 0 10px var(--transBg);
+  background-color: var(--transBg);
 }
 
 .color-display {
