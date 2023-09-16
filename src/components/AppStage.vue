@@ -205,7 +205,7 @@ main {
   justify-content: center;
   position: sticky;
   top: 0;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.5);
   padding: 10px 0;
 }
 
