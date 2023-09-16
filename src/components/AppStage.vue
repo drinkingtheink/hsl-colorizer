@@ -134,4 +134,15 @@ export default {
   padding: 5px 10px;
   border-radius: 10px;
 }
+
+.color-variants {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.color-variants span {
+  margin-right: 10px;
+}
 </style>

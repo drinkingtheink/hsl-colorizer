@@ -47,13 +47,14 @@ export default {
           darkArray: [],
           lightArray: [],
           randomArray: [],
+          lumArray: [],
       }
   },
   methods: {
     makePalettes() {
-        this.makeDarkArray();
-        this.makeLightArray();
-        this.makeRandomArray();
+        this.makeDarkArray()
+        this.makeLightArray()
+        this.makeRandomArray()
     },
     makeDarkArray() {
         const chromaColor = chroma(this.hex)
@@ -100,5 +101,6 @@ export default {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    margin-right: 5px;
 }
 </style>
