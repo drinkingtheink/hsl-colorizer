@@ -89,7 +89,7 @@ export default {
   },
   data() {
       return {
-          complimentary: [],
+          complementary: [],
           split: [],
           triad: [],
           tetrad: [],
