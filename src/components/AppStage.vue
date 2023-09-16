@@ -172,6 +172,7 @@ export default {
   --customMixInputWidth: 300px;
   --borRad: 10px;
   --pionterDim: 200px;
+  --customMixCircDim: 50px;
 }
 
 html, body {

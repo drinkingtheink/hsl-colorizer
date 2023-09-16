@@ -331,10 +331,11 @@ export default {
 }
 
 .romance .selected {
-    height: 25px;
-    width: 25px;
+    height: var(--customMixCircDim);
+    width: var(--customMixCircDim);
     border-radius: 50%;
     margin-right: 10px;
+    margin-bottom: -15px;
     background-color: var(--primary);
     display: inline-block;
 }
