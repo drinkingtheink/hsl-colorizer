@@ -215,9 +215,9 @@ export default {
     handleCustomColorInput(e) {
         this.customMixColor = e.target.value;
     },
-    makeCustomMixArray() {
-        const chromaColor = chroma(this.hex)
-        const otherColor = this.customMixColor ? chroma(this.customMixColor) : null
+    makeCustomMixArray(color1, color2) {
+        const chromaColor = color2 ? chroma(color2) : null
+        const otherColor = color1 ? chroma(color1) : null
 
         if (!otherColor) {
             return
@@ -242,7 +242,7 @@ export default {
     },
     customMixColor() {
         if (this.customMixColor !== 'undefined') {
-            this.makeCustomMixArray()
+            this.makeCustomMixArray(this.customMixColor, this.hex)
         }
     },
   },
@@ -273,7 +273,14 @@ export default {
 .swatch {
     width: 100px;
     height: 100px;
-    /* border-radius: 50%; */
+    transition: all 0.2;
+    box-shadow: none;
+}
+
+.swatch:hover {
+    transform: scale(1.2);
+    transition: all 0.2s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
 
 .swatch span {

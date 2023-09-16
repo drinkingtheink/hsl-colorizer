@@ -45,5 +45,12 @@ button {
   padding: 10px 20px;
   text-transform: uppercase;
   border-radius: var(--borRad);
+  transition: all 1s;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+button:hover {
+  color: white;
+  box-shadow: 0 0 20px var(--primary);
 }
 </style>
