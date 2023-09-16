@@ -1,5 +1,29 @@
 <template>
   <section class="palette-stage">
+    <div class="gallery-wrapper custom">
+        <h3>Make Your Own Mix</h3>
+        <div v-if="!customMixColor" class="capture-color">
+            <p class="romance"><span class="selected"/><span class="and">&</span><span class="q-mark">?</span><span class="q-mark">?</span><span class="q-mark">?</span></p>
+            <label for="custom-color-input">Pick a color to mix with your selection</label>
+            <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" />
+        </div>
+        <div v-if="customMixColor" class="color-captured">
+            <div class="gallery">
+                <span
+                    class="swatch"
+                    v-for="swatch in customArray"
+                    :key="swatch"
+                    :style="`background-color: ${swatch}`"
+                ><span>{{ swatch }}</span></span>
+            </div>
+            <div class="change-color">
+                <label for="custom-color-input">Choose Another Color to Change Your Mix</label>
+                <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" :value="customMixColor" />
+                <button @click="clearCustomColor">Clear Selection</button>
+            </div>
+        </div>
+    </div>
+    
     <div v-if="lightArray.length > 0" class="gallery-wrapper light">
         <h3>Trending Lighter</h3>
         <div class="gallery">
@@ -93,30 +117,6 @@
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
             ><span>{{ swatch }}</span></span>
-        </div>
-    </div>
-
-    <div class="gallery-wrapper custom">
-        <h3>Make Your Own Mix</h3>
-        <div v-if="!customMixColor" class="capture-color">
-            <p class="romance"><span class="selected"/><span class="and">&</span><span class="q-mark">?</span><span class="q-mark">?</span><span class="q-mark">?</span></p>
-            <label for="custom-color-input">Pick a color to mix with your selection</label>
-            <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" />
-        </div>
-        <div v-if="customMixColor" class="color-captured">
-            <div class="gallery">
-                <span
-                    class="swatch"
-                    v-for="swatch in customArray"
-                    :key="swatch"
-                    :style="`background-color: ${swatch}`"
-                ><span>{{ swatch }}</span></span>
-            </div>
-            <div class="change-color">
-                <label for="custom-color-input">Choose Another Color to Change Your Mix</label>
-                <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" :value="customMixColor" />
-                <button @click="clearCustomColor">Clear Selection</button>
-            </div>
         </div>
     </div>
   </section>
