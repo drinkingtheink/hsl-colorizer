@@ -185,6 +185,7 @@ export default {
 :root {
   --flatBg: #e1e1e1;
   --transBg: rgba(0,0,0,0.7);
+  --transBgW: rgba(255,255,255,0.7);
   --customMixInputWidth: 300px;
   --borRad: 10px;
   --pionterDim: 200px;
@@ -221,6 +222,10 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+}
+
+.app-title {
+  background-color: var(--transBgW);
 }
 
 .app-title.dark {
