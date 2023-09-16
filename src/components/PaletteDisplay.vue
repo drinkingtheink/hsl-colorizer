@@ -114,6 +114,7 @@
             <div class="change-color">
                 <label for="custom-color-input">Choose Another Color to Change Your Mix</label>
                 <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" :value="customMixColor" />
+                <button @click="clearCustomColor">Clear Selection</button>
             </div>
         </div>
     </div>
@@ -215,11 +216,18 @@ export default {
     },
     makeCustomMixArray() {
         const chromaColor = chroma(this.hex)
-        const otherColor = chroma(this.customMixColor)
+        const otherColor = this.customMixColor ? chroma(this.customMixColor) : null
 
+        if (!otherColor) {
+            return
+        }
+        
         for (var i = 0; i < this.steps; i++) {
             this.customArray[i] = chroma.mix(chromaColor, otherColor, i * 0.25)
         }
+    },
+    clearCustomColor() {
+        this.customMixColor = null
     },
   },
   mounted() {
@@ -281,6 +289,7 @@ export default {
     padding: 0 0 2rem 0;
     width: 100%;
     border-radius: var(--borRad);
+    position: relative;
 }
 
 .gallery-wrapper.custom .capture-color input {
@@ -293,5 +302,11 @@ export default {
 
 .change-color {
     margin-top: 2rem;
+}
+
+.change-color button {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
 }
 </style>

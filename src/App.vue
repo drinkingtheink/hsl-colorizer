@@ -37,4 +37,13 @@ h1, h2, h3, h4, h5 {
 label {
   display: block;
 }
+
+button {
+  background-color: var(--transBg);
+  color: var(--primary);
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: var(--borRad);
+}
 </style>
