@@ -51,11 +51,10 @@
       :style="colorDisplay"
       @click="focusHueInput"
     >
-      <p>
-        <strong>HSL:</strong> 
-        <span class="hue-display">{{ hue }}°</span> 
-        <span class="sat-display">{{ saturation }}%</span> 
-        <span class="light-display">{{ lightness }}%</span>
+      <p> 
+        <span class="hue-display"><strong>H:</strong> {{ hue }}°</span> 
+        <span class="sat-display"><strong>S:</strong> {{ saturation }}%</span> 
+        <span class="light-display"><strong>L:</strong> {{ lightness }}%</span>
       </p>
     </div>
 
@@ -255,7 +254,7 @@ main {
 .color-display span {
   width:40px;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 30px;
 }
 
 .color-variants {
