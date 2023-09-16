@@ -125,6 +125,12 @@ export default {
 </script>
 
 <style>
+
+:root {
+  --flatBg: #e1e1e1;
+  --transBg: rgba(0,0,0,0.7);
+}
+
 html, body {
   padding: 0;
   margin: 0;

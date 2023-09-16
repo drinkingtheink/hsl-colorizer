@@ -99,7 +99,8 @@
     <div v-if="toPurpleArray.length > 0" class="gallery-wrapper custom">
         <h3>Make Your Own Mix</h3>
         <div v-if="!customMixColor" class="capture-color">
-            <input type="color" @input="handleCustomColorInput" />
+            <label for="custom-color-input">Pick a color to mix with your selection</label>
+            <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" />
         </div>
         <div v-else class="gallery">
             <span
@@ -207,9 +208,10 @@ export default {
     },
     makeCustomMixArray() {
         const chromaColor = chroma(this.hex)
+        const otherColor = chroma(this.customMixColor)
 
         for (var i = 0; i < this.steps; i++) {
-            this.toPurpleArray[i] = chroma.mix(chromaColor, 'purple', i * 0.25)
+            this.toPurpleArray[i] = chroma.mix(chromaColor, otherColor, i * 0.25)
         }
     },
   },
@@ -222,7 +224,7 @@ export default {
     },
     customMixColor() {
         if (this.customMixColor !== 'undefined') {
-            this.makePalettes(this.customMixColor)
+            this.makeCustomMixArray()
         }
     },
   },
@@ -261,5 +263,17 @@ export default {
     background-color: rgba(0,0,0,0.8);
     color: white;
     margin-top: 100%;
+}
+
+.gallery-wrapper.custom {
+    background-color: var(--flatBg);
+    margin-top: 2rem;
+    padding: 0 0 2rem 0;
+    width: 100%;
+    font-size: 140%;
+}
+
+.gallery-wrapper.custom input {
+    width: 400px;
 }
 </style>
