@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <div v-if="randomArray.length > 0" class="gallery-wrapper random">
+    <!-- <div v-if="randomArray.length > 0" class="gallery-wrapper random">
         <h3>Random Selection</h3>
         <div class="gallery">
             <span
@@ -70,7 +70,7 @@
                 :style="`background-color: ${swatch}`"
             />
         </div>
-    </div>
+    </div> -->
   </section>
 </template>
 
@@ -167,7 +167,7 @@ export default {
 }
 
 .gallery-wrapper {
-    margin: 10px;
+    margin: 10px 20px;
 }
 
 .gallery {

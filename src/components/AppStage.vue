@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h2>Make a Color in HSL</h2>
+    <h2>HSL Color Explorer</h2>
 
     <section class="config">
       <div class="wrapper hue">
@@ -43,11 +43,11 @@
     </section>
 
 
-    <div class="color-display" :style="colorDisplay"><p><strong>HSL:</strong> {{ hue }}° {{ saturation }}% {{ lightness }}%</p></div>
+    <div class="color-display" :style="colorDisplay"><p><strong>HSL:</strong> <span class="hue-display">{{ hue }}°</span> <span class="sat-display">{{ saturation }}%</span> <span class="light-display">{{ lightness }}%</span></p></div>
 
     <div class="color-variants">
-      <span><strong>HEX:</strong> {{ hex }}</span>
-      <span><strong>RGB:</strong> {{ rgb }}</span>
+      <span class="hex"><strong>HEX:</strong> <span class="hex-display">{{ hex }}</span></span>
+      <span class="rgb"><strong>RGB:</strong> <span class="rgb-display">{{ rgb }}</span></span>
     </div>
 
     <PaletteDisplay :hex="hex"/>
@@ -115,11 +115,6 @@ export default {
     this.hue = this.getRandInt(0, 359);
     document.getElementById('hue-input').value = this.hue;
   },
-  watch: {
-    hslVals() {
-
-    }
-  },
 }
 </script>
 
@@ -139,15 +134,45 @@ export default {
   border-radius: 10px;
 }
 
+.color-display span {
+  width:40px;
+  display: inline-block;
+}
+
 .color-variants {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .color-variants span {
-  margin-right: 10px;
+  margin: 0 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.color-variants span span {
+  background-color: transparent;
+  display: inline-block;
+}
+
+.color-variants span span.hex-display {
+  width: 40px;
+}
+
+.color-variants span span.rgb-display {
+  width: 130px;
+}
+
+.color-variants .hex {
+  width: 150px;
+}
+
+.color-variants .rgb {
+  width: 210px;
 }
 
 .config {
