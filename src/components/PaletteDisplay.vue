@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    
+
     <div v-if="lightArray.length > 0" class="gallery-wrapper light">
         <h3>Trending Lighter</h3>
         <div class="gallery">
@@ -282,7 +282,7 @@ export default {
 }
 
 .swatch:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: all 0.2s;
     box-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
