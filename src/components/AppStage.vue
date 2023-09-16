@@ -135,7 +135,7 @@ main {
 
 .color-display {
   padding: 4rem;
-  margin: 2rem auto 0 auto;
+  margin: 0.5rem auto 0 auto;
   width: 20rem;
   border-radius: 10px;
   border: 10px solid rgba(0,0,0,0.3);
@@ -194,10 +194,16 @@ main {
 .config {
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 10px;
 }
 
 .config div {
   margin-right: 10px;
   width: 140px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 10px;
 }
 </style>
