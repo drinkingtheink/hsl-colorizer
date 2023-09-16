@@ -41,8 +41,6 @@
         </div>
     </div>
 
-    <h3 class="section-banner">Mix Palettes</h3>
-
     <div v-if="toBlueArray.length > 0" class="gallery-wrapper to-blue">
         <h3>Mix to Blue</h3>
         <div class="gallery">
@@ -383,7 +381,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1200px;
+    max-width: var(--appWidth);
     margin: 0 auto;
     padding: 0 0 1rem 0;
 }

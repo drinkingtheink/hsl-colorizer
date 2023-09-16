@@ -194,10 +194,11 @@ export default {
   --pionterDim: 200px;
   --customMixCircDim: 50px;
   --darkGrey: #222;
+  --appWidth: 1200px;
 }
 
 html, body {
-  padding: 0;
+  padding: 0 0 10rem 0;
   margin: 0;
 }
 
@@ -328,5 +329,6 @@ main {
   width: 100vw;
   background-color: var(--transBg);
   color: white;
+  padding: 0.5rem 0;
 }
 </style>

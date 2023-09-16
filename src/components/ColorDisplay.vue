@@ -1,73 +1,75 @@
 <template>
   <section class="colors-stage">
     <h3 class="section-banner">Color Collections</h3>
-    
-    <div class="complimentary">
-        <div v-if="complimentary.length > 0" class="gallery-wrapper complimentary">
-            <h3>Complimentary</h3>
-            <div class="gallery">
-                <span
-                    class="swatch"
-                    v-for="swatch in complimentary"
-                    :key="swatch"
-                    :style="`background-color: ${swatch}`"
-                ><span>{{ swatch }}</span></span>
+
+    <div class="flex-wrapper">
+        <div class="complimentary">
+            <div v-if="complimentary.length > 0" class="gallery-wrapper complimentary">
+                <h3>Complimentary</h3>
+                <div class="gallery">
+                    <span
+                        class="swatch"
+                        v-for="swatch in complimentary"
+                        :key="swatch"
+                        :style="`background-color: ${swatch}`"
+                    ><span>{{ swatch }}</span></span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="split">
-        <div v-if="complimentary.length > 0" class="gallery-wrapper split">
-            <h3>Split</h3>
-            <div class="gallery">
-                <span
-                    class="swatch"
-                    v-for="swatch in split"
-                    :key="swatch"
-                    :style="`background-color: ${swatch}`"
-                ><span>{{ swatch }}</span></span>
+        <div class="split">
+            <div v-if="complimentary.length > 0" class="gallery-wrapper split">
+                <h3>Split</h3>
+                <div class="gallery">
+                    <span
+                        class="swatch"
+                        v-for="swatch in split"
+                        :key="swatch"
+                        :style="`background-color: ${swatch}`"
+                    ><span>{{ swatch }}</span></span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="triad">
-        <div v-if="complimentary.length > 0" class="gallery-wrapper triad">
-            <h3>Triad</h3>
-            <div class="gallery">
-                <span
-                    class="swatch"
-                    v-for="swatch in triad"
-                    :key="swatch"
-                    :style="`background-color: ${swatch}`"
-                ><span>{{ swatch }}</span></span>
+        <div class="triad">
+            <div v-if="complimentary.length > 0" class="gallery-wrapper triad">
+                <h3>Triad</h3>
+                <div class="gallery">
+                    <span
+                        class="swatch"
+                        v-for="swatch in triad"
+                        :key="swatch"
+                        :style="`background-color: ${swatch}`"
+                    ><span>{{ swatch }}</span></span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="tetrad">
-        <div v-if="complimentary.length > 0" class="gallery-wrapper tetrad">
-            <h3>Tetrad</h3>
-            <div class="gallery">
-                <span
-                    class="swatch"
-                    v-for="swatch in tetrad"
-                    :key="swatch"
-                    :style="`background-color: ${swatch}`"
-                ><span>{{ swatch }}</span></span>
+        <div class="tetrad">
+            <div v-if="complimentary.length > 0" class="gallery-wrapper tetrad">
+                <h3>Tetrad</h3>
+                <div class="gallery">
+                    <span
+                        class="swatch"
+                        v-for="swatch in tetrad"
+                        :key="swatch"
+                        :style="`background-color: ${swatch}`"
+                    ><span>{{ swatch }}</span></span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="analagous">
-        <div v-if="complimentary.length > 0" class="gallery-wrapper analagous">
-            <h3>Analagous</h3>
-            <div class="gallery">
-                <span
-                    class="swatch"
-                    v-for="swatch in analagous"
-                    :key="swatch"
-                    :style="`background-color: ${swatch}`"
-                ><span>{{ swatch }}</span></span>
+        <div class="analogous">
+            <div v-if="complimentary.length > 0" class="gallery-wrapper analogous">
+                <h3>Analogous</h3>
+                <div class="gallery">
+                    <span
+                        class="swatch"
+                        v-for="swatch in analogous"
+                        :key="swatch"
+                        :style="`background-color: ${swatch}`"
+                    ><span>{{ swatch }}</span></span>
+                </div>
             </div>
         </div>
     </div>
@@ -132,5 +134,16 @@ export default {
 </script>
 
 <style>
+.flex-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: var(--appWidth);
+    margin: 0 auto;
+    padding: 0 0 1rem 0;
+}
 
+.colors-stage .gallery-wrapper {
+    margin: 10px 20px 50px 20px;
+}
 </style>
