@@ -3,13 +3,13 @@
     <h3 class="section-banner">Color Collections</h3>
 
     <div class="flex-wrapper">
-        <div class="complimentary">
-            <div v-if="complimentary.length > 0" class="gallery-wrapper complimentary">
-                <h3>Complimentary</h3>
+        <div class="complementary">
+            <div v-if="complementary.length > 0" class="gallery-wrapper complementary">
+                <h3>complementary</h3>
                 <div class="gallery">
                     <span
                         class="swatch"
-                        v-for="swatch in complimentary"
+                        v-for="swatch in complementary"
                         :key="swatch"
                         :style="`background-color: ${swatch}`"
                     ><span>{{ swatch }}</span></span>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="split">
-            <div v-if="complimentary.length > 0" class="gallery-wrapper split">
+            <div v-if="split.length > 0" class="gallery-wrapper split">
                 <h3>Split</h3>
                 <div class="gallery">
                     <span
@@ -32,7 +32,7 @@
         </div>
 
         <div class="triad">
-            <div v-if="complimentary.length > 0" class="gallery-wrapper triad">
+            <div v-if="triad.length > 0" class="gallery-wrapper triad">
                 <h3>Triad</h3>
                 <div class="gallery">
                     <span
@@ -46,7 +46,7 @@
         </div>
 
         <div class="tetrad">
-            <div v-if="complimentary.length > 0" class="gallery-wrapper tetrad">
+            <div v-if="tetrad.length > 0" class="gallery-wrapper tetrad">
                 <h3>Tetrad</h3>
                 <div class="gallery">
                     <span
@@ -60,7 +60,7 @@
         </div>
 
         <div class="analogous">
-            <div v-if="complimentary.length > 0" class="gallery-wrapper analogous">
+            <div v-if="analogous.length > 0" class="gallery-wrapper analogous">
                 <h3>Analogous</h3>
                 <div class="gallery">
                     <span
