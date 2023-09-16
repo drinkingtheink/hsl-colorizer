@@ -124,10 +124,10 @@ export default {
         this.harmonizeColor(this.hex, this.hue, this.sat, this.light)
     },
     sat() {
-        this.harmonizeColor(this.hue, this.sat, this.light)
+        this.harmonizeColor(this.hex, this.hue, this.sat, this.light)
     },
     light() {
-        this.harmonizeColor(this.hue, this.sat, this.light)
+        this.harmonizeColor(this.hex, this.hue, this.sat, this.light)
     },
   },
 }

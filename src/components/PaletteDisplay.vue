@@ -420,11 +420,11 @@ export default {
 .gallery-wrapper.custom {
     background-color: var(--transBg);
     color: white;
-    margin-top: 2rem;
     padding: 0 0 2rem 0;
     width: 80%;
     border-radius: var(--borRad);
     position: relative;
+    margin: 2rem 0 0 0;
 }
 
 .gallery-wrapper.light-to-dark {
