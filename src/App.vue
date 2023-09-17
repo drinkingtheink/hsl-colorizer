@@ -117,6 +117,7 @@ footer a {
 
 footer a:hover {
   background-color: var(--primary);
-  border-color: violet;
+  border-color: white;
+  text-shadow: 1px 1px 2px black;
 }
 </style>
