@@ -21,8 +21,13 @@
         <h3>Make Your Own Mix</h3>
         <div v-if="!customMixColor" class="capture-color">
             <p class="romance"><span class="selected" @click="focusHueInput" /><span class="and">&</span><span class="q-mark">?</span><span class="q-mark">?</span><span class="q-mark">?</span></p>
-            <label for="custom-color-input">Pick a color below to mix with your selection</label>
-            <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" />
+            <label for="custom-color-input-1">Pick a color below to mix with your selection</label>
+            <input type="color" id="custom-color-input-1" name="custom-color-input-1" @input="handleCustomColorInput" />
+            <button 
+                @click="mixWithRandom(hex)"
+                :class="lightOrDark(hex)"
+                class="mix-random"
+            >Mix w/ Random</button>
         </div>
         <div v-if="customMixColor" class="color-captured">
             <div class="gallery">
@@ -37,13 +42,27 @@
                 <p :class="{ good: a11yHappy }"><strong>CONTRAST:</strong> {{ customSelectedContrast }}</p>
             </div>
             <div class="change-color">
-                <label for="custom-color-input">Choose Another Color to Change Your Mix</label>
-                <input type="color" id="custom-color-input" name="custom-color-input" @input="handleCustomColorInput" :value="customMixColor" />
+                <label for="custom-color-input-2">Choose Another Color to Change Your Mix</label>
+                <input type="color" 
+                    id="custom-color-input-2" 
+                    name="custom-color-input-2" 
+                    @input="handleCustomColorInput" 
+                    :value="customMixColor" 
+                />
+
                 <button 
-                    @click="clearCustomColor"
+                    @click="mixWithRandom(hex)"
                     :class="lightOrDark(hex)"
-                    id="clear-custom-color"
-                >Clear Selection</button>
+                    class="mix-random"
+                >Mix w/ Random</button>
+
+                <div class="custom-actions">
+                    <button 
+                        @click="clearCustomColor"
+                        :class="lightOrDark(hex)"
+                        id="clear-custom-color"
+                    >Clear Selection</button>
+                </div>
             </div>
         </div>
     </div>
@@ -375,11 +394,21 @@ export default {
     clearCustomColor() {
         this.customMixColor = null
     },
+    mixWithRandom(color) {
+        const theColor = chroma(color)
+        const otherColor = chroma.random()
+
+        this.customMixColor = otherColor
+
+        this.makeCustomMixArray(otherColor, theColor)
+    }
   },
   mounted() {
       if (this.hex) this.makePalettes(this.hex)
 
-      document.getElementById('custom-color-input').value = chroma.random()
+      const colInput1 = document.getElementById('custom-color-input-1')
+      
+      if (colInput1) colInput1.value = chroma.random()
   },
   watch: {
     hex() {
@@ -490,10 +519,18 @@ export default {
     margin-top: 2rem;
 }
 
-.change-color button {
+.change-color label {
+    margin-bottom: 1rem;
+}
+
+.change-color .custom-actions {
     position: absolute;
     right: 2rem;
     top: 1rem;
+}
+
+.change-color .custom-actions button {
+    display:  block;
 }
 
 .romance {
@@ -519,7 +556,16 @@ export default {
   margin-left: 10px;
 }
 
+#clear-custom-color:hover {
+  background-color: var(--primary);
+}
+
 #clear-custom-color.light:hover {
   color: var(--darkGrey);
+}
+
+.mix-random {
+    box-shadow: none;
+    margin-left: 10px;
 }
 </style>
