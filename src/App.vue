@@ -1,6 +1,7 @@
 <template>
   <AppStage :lightOrDark="lightOrDark"/>
   <footer>
+    <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">About the HSL Color Space</a>
     <a href="https://github.com/drinkingtheink/hsl-colorizer">About this App</a>
     <a href="https://www.drinkingtheink.com/?topic=about">About the Author</a>
   </footer>
@@ -112,7 +113,9 @@ footer a {
   color: white;
   text-decoration: none;
   transition: all 0.5s;
-  border-left: 5px solid var(--primary)
+  border-left: 5px solid var(--primary);
+  transition: all 0.5s;
+  width: 200px;
 }
 
 footer a:hover {
