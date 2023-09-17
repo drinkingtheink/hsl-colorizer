@@ -26,7 +26,7 @@
             <button 
                 @click="mixWithRandom(hex)"
                 :class="lightOrDark(hex)"
-                class="mix-random"
+                class="mix-random btn2"
             >Mix w/ Random</button>
         </div>
         <div v-if="customMixColor" class="color-captured">
@@ -53,7 +53,7 @@
                 <button 
                     @click="mixWithRandom(hex)"
                     :class="lightOrDark(hex)"
-                    class="mix-random"
+                    class="mix-random btn2"
                 >Mix w/ Random</button>
 
                 <div class="custom-actions">
@@ -535,6 +535,7 @@ export default {
 
 .romance {
     font-size: 180%;
+    font-weight: 700;
 }
 
 .romance .selected {
@@ -567,5 +568,14 @@ export default {
 .mix-random {
     box-shadow: none;
     margin-left: 10px;
+}
+
+.btn2 {
+    background-color: white;
+    color: var(--darkGrey);
+}
+
+.btn2:hover {
+    color: var(--darkGrey);
 }
 </style>
