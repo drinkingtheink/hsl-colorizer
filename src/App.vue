@@ -62,6 +62,11 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@300;700&display=swap');
 
+html, body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

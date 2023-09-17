@@ -57,6 +57,19 @@
       </p>
     </div>
 
+    <div class="suggestions">
+        <h3>Or Try Some of These:</h3>
+          <div>
+              <span
+                  class="sugg"
+                  v-for="sugg, index in suggestions"
+                  :key="`${sugg}-${index}`"
+                  :style="`background-color: ${sugg}`"
+                  @click="handleSuggClick(sugg)"
+              />
+          </div>
+      </div>`
+
     <div class="color-variants">
       <span class="hex"><strong>HEX:</strong> <span class="hex-display">{{ hex }}</span></span>
       <span class="rgb"><strong>RGB:</strong> <span class="rgb-display">{{ rgb }}</span></span>
@@ -99,9 +112,19 @@ export default {
       hue: 0,
       saturation: 90,
       lightness: 50,
+      suggestions: [],
+      suggestionCount: 10,
     }
   },
   methods: {
+    handleSuggClick(color) {
+      alert(`COLOR >>> ${JSON.stringify(color)}`);
+    },
+    generateColorSuggestions() {
+        for (var i = 0; i < this.suggestionCount; i++) {
+            this.suggestions[i] = chroma.random()
+        }
+    },
     checkForQueryStrings() {
       let queryParams = new URLSearchParams(window.location.search)
       let hQuery = queryParams.get('hue')
@@ -200,6 +223,7 @@ export default {
   },
   mounted() {
     this.checkForQueryStrings()
+    this.generateColorSuggestions()
 
     const hueInput = document.getElementById('hue-input')
     if (hueInput) document.getElementById('hue-input').value = this.hue
@@ -240,6 +264,7 @@ export default {
   --darkGrey: #222;
   --appWidth: 1200px;
   --swatchBord: 1px solid rgba(255,255,255,0.3);
+  --suggDim: 25px;
 }
 
 html, body {
@@ -249,6 +274,27 @@ html, body {
 
 main {
   border-top: 10px solid var(--primary);
+  position: relative;
+}
+
+.suggestions {
+  position: absolute;
+  width: 150px;
+}
+
+.sugg {
+  display: inline-block;
+  height: var(--suggDim);
+  width: var(--suggDim);
+  margin-right: 4px;
+  border-radius: 50%;
+  border: 4px solid rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.sugg:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .app-title {
@@ -290,6 +336,7 @@ main {
   width: 20rem;
   border-radius: 10px;
   border: 10px solid rgba(0,0,0,0.3);
+  position: relative;
 }
 
 .color-display p {
