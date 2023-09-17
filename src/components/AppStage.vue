@@ -214,6 +214,7 @@ export default {
       this.hue = this.getRandInt(0, maxHue)
       this.saturation = 90
       this.lightness = 50
+      this.generateColorSuggestions()
     }
   },
   computed: {
