@@ -45,19 +45,20 @@
       </div>
     </section>
 
-    <div 
-      class="color-display" 
-      :style="colorDisplay"
-      @click="focusHueInput"
-    >
-      <p> 
-        <span class="hue-display"><strong>H:</strong> {{ hue }}°</span> 
-        <span class="sat-display"><strong>S:</strong> {{ saturation }}%</span> 
-        <span class="light-display"><strong>L:</strong> {{ lightness }}%</span>
-      </p>
-    </div>
+    <section class="color-display-stage">
+      <div 
+        class="color-display" 
+        :style="colorDisplay"
+        @click="focusHueInput"
+      >
+        <p> 
+          <span class="hue-display"><strong>H:</strong> {{ hue }}°</span> 
+          <span class="sat-display"><strong>S:</strong> {{ saturation }}%</span> 
+          <span class="light-display"><strong>L:</strong> {{ lightness }}%</span>
+        </p>
+      </div>
 
-    <div class="suggestions">
+      <div class="suggestions">
         <h3>Or Try Some of These:</h3>
           <div>
               <span
@@ -68,7 +69,9 @@
                   @click="handleSuggClick(sugg)"
               />
           </div>
-      </div>`
+      </div>
+
+    </section>
 
     <div class="color-variants">
       <span class="hex"><strong>HEX:</strong> <span class="hex-display">{{ hex }}</span></span>
@@ -118,7 +121,16 @@ export default {
   },
   methods: {
     handleSuggClick(color) {
-      alert(`COLOR >>> ${JSON.stringify(color)}`);
+      const theColor = chroma(color)
+      const hslVal = theColor.hsl()
+      const hEvent = {
+        target: {
+          value: hslVal[0].toFixed()
+        }
+      }
+
+      this.updateHue(hEvent)
+      this.generateColorSuggestions()
     },
     generateColorSuggestions() {
         for (var i = 0; i < this.suggestionCount; i++) {
@@ -259,7 +271,7 @@ export default {
   --transBgW: rgba(255,255,255,0.7);
   --customMixInputWidth: 300px;
   --borRad: 10px;
-  --pionterDim: 200px;
+  --pointerDim: 200px;
   --customMixCircDim: 50px;
   --darkGrey: #222;
   --appWidth: 1200px;
@@ -278,8 +290,15 @@ main {
 }
 
 .suggestions {
-  position: absolute;
   width: 150px;
+  position: absolute;
+  left: 20%;
+}
+
+@media (width <= 1300px) {
+  .suggestions {
+    display: none;
+  }
 }
 
 .sugg {
@@ -290,6 +309,10 @@ main {
   border-radius: 50%;
   border: 4px solid rgba(0,0,0,0.3);
   transition: all 0.2s;
+}
+
+.suggestions h3 {
+  font-size: 90%;
 }
 
 .sugg:hover {
@@ -310,9 +333,9 @@ main {
   margin: 0 auto;
   width: 0; 
   height: 0; 
-  border-left: var(--pionterDim) solid transparent;
-  border-right: var(--pionterDim) solid transparent;
-  border-top: var(--pionterDim) solid var(--primary);
+  border-left: var(--pointerDim) solid transparent;
+  border-right: var(--pointerDim) solid transparent;
+  border-top: var(--pointerDim) solid var(--primary);
   position: absolute;
   top: 0;
   left: 50%;
@@ -330,13 +353,17 @@ main {
   background-color: var(--transBg);
 }
 
+.color-display-stage {
+  position: relative;
+  display: flex;
+}
+
 .color-display {
   padding: 4rem;
   margin: 0.5rem auto 0 auto;
   width: 20rem;
   border-radius: 10px;
   border: 10px solid rgba(0,0,0,0.3);
-  position: relative;
 }
 
 .color-display p {
