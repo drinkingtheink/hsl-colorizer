@@ -109,7 +109,7 @@ export default {
         return colors
     },
     harmonizeColor(hex, h, s, l) {
-        this.complimentary = this.harmonize(hex, h,s,l, 180, 180, 1)
+        this.complementary = this.harmonize(hex, h,s,l, 180, 180, 1)
         this.split = this.harmonize(hex, h,s,l, 150, 210, 60)
         this.triad = this.harmonize(hex, h,s,l, 120, 240, 120)
         this.tetrad = this.harmonize(hex, h,s,l, 90, 270, 90)
