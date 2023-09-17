@@ -64,7 +64,6 @@ export default {
 
 html, body {
   width: 100vw;
-  overflow-x: hidden;
 }
 
 #app {
