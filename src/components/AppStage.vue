@@ -116,7 +116,7 @@ export default {
       saturation: 90,
       lightness: 50,
       suggestions: [],
-      suggestionCount: 10,
+      suggestionCount: 12,
     }
   },
   methods: {
