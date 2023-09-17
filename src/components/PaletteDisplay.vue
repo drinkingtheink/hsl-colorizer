@@ -466,6 +466,8 @@ export default {
     height: 100px;
     transition: all 0.2;
     box-shadow: none;
+    border-right: var(--swatchBord);
+    border-left: var(--swatchBord);
 }
 
 .swatch:hover {

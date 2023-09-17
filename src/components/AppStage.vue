@@ -239,6 +239,7 @@ export default {
   --customMixCircDim: 50px;
   --darkGrey: #222;
   --appWidth: 1200px;
+  --swatchBord: 1px solid rgba(255,255,255,0.3);
 }
 
 html, body {
