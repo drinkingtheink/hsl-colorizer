@@ -130,6 +130,23 @@ export default {
       }
 
       this.updateHue(hEvent)
+
+      // const sEvent = {
+      //   target: {
+      //     value: hslVal[1]
+      //   }
+      // }
+
+      // this.updateSat(sEvent)
+
+      // const lEvent = {
+      //   target: {
+      //     value: hslVal[2]
+      //   }
+      // }
+
+      // this.updateLight(lEvent)
+      
       this.generateColorSuggestions()
     },
     generateColorSuggestions() {
@@ -293,7 +310,7 @@ main {
 .suggestions {
   width: 150px;
   position: absolute;
-  left: 20%;
+  right: 20%;
 }
 
 @media (width <= 1300px) {
