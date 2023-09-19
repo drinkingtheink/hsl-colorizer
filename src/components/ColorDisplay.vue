@@ -5,7 +5,7 @@
     <div class="flex-wrapper">
         <div class="complementary">
             <div v-if="complementary.length > 0" class="gallery-wrapper complementary">
-                <h3>complementary</h3>
+                <h3>Complementary</h3>
                 <div class="gallery">
                     <span
                         class="swatch"
