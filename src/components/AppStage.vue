@@ -508,6 +508,10 @@ main {
     margin-top: 1rem;
   }
 
+  .gallery-wrapper {
+    width: 100%;
+  }
+
   .gallery-wrapper.custom {
     width: 100%;
   }
