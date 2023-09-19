@@ -295,6 +295,7 @@ export default {
   --appWidth: 1200px;
   --swatchBord: 1px solid rgba(255,255,255,0.3);
   --suggDim: 25px;
+  --mobMinWidth: 500px;
 }
 
 html, body {
@@ -305,6 +306,18 @@ html, body {
 main {
   border-top: 10px solid var(--primary);
   position: relative;
+}
+
+@media (width <= 550px) {
+  main {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border: 5px solid lime;
+  }
+
+  .color-variants {
+    display: block;
+  }
 }
 
 .suggestions {
