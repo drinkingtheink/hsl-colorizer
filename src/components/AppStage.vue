@@ -308,27 +308,6 @@ main {
   position: relative;
 }
 
-@media (width <= 650px) {
-  main {
-    border: 5px solid lime;
-  }
-
-  .config div {
-    width: 100px;
-    font-size: 80%;
-  }
-
-  .color-variants {
-    display: block;
-  }
-
-  #get-random-color {
-    display: block;
-    width: 100%;
-    margin-top: 1rem;
-  }
-}
-
 .suggestions {
   width: 150px;
   position: absolute;
@@ -503,5 +482,34 @@ main {
 
 #get-random-color:hover {
   background-color: var(--primary)
+}
+
+@media (width <= 650px) {
+  main {
+    border: 5px solid lime;
+  }
+
+  .config div {
+    width: 100px;
+    font-size: 80%;
+  }
+
+  .config input {
+    width: 100px;
+  }
+
+  .color-variants {
+    display: block;
+  }
+
+  #get-random-color {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .gallery-wrapper.custom {
+    width: 100%;
+  }
 }
 </style>
