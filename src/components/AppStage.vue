@@ -573,6 +573,10 @@ main {
     margin: 0 auto 0.5rem auto !important;
     padding: 2px !important;
   }
+
+  .palette-stage {
+    overflow: hidden;
+  }
 }
 
 @media (width <= 390px) {
