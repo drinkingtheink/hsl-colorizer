@@ -295,6 +295,7 @@ export default {
   --appWidth: 1200px;
   --swatchBord: 1px solid rgba(255,255,255,0.3);
   --swatchDim: 100px;
+  --lrdMobSwatchDim: 50px;
   --suggDim: 25px;
   --mobMinWidth: 500px;
 }
@@ -537,6 +538,26 @@ main {
     display: block;
     width: 80%;
     margin: 1rem auto 0 auto;
+  }
+
+  .color-captured {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  #clear-custom-color {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .change-color .custom-actions {
+    position: static;
+    padding-top: 1rem;
+  }
+
+  .light-to-dark .swatch {
+    width: var(--lrdMobSwatchDim);
+    height: var(--lrdMobSwatchDim);
   }
 }
 </style>
