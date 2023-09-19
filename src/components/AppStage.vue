@@ -274,7 +274,7 @@ export default {
     },
     lightness() {
       if (this.lightness > maxLit) this.lightness = maxLit
-
+5
       this.updateLitQueryString(this.lightness)
     },
   }
@@ -495,6 +495,10 @@ main {
     width: 100vw;
   }
 
+  .config {
+    flex-wrap: wrap;
+  }
+
   .config div {
     width: 100px;
     font-size: 80%;
@@ -558,6 +562,15 @@ main {
   .light-to-dark .swatch {
     width: var(--lrdMobSwatchDim);
     height: var(--lrdMobSwatchDim);
+  }
+
+  .small-color-display {
+    display: block;
+    width: 90% !important;
+    border-radius: 3px !important;
+    height: 6px !important;
+    margin: 0 auto 0.5rem auto !important;
+    padding: 2px !important;
   }
 }
 </style>
