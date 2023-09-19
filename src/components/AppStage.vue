@@ -486,7 +486,7 @@ main {
   background-color: var(--primary)
 }
 
-@media (width <= 650px) {
+@media (width <= 550px) {
   :root {
     --swatchDim: 80px;
   }
