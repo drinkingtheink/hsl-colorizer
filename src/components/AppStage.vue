@@ -294,6 +294,7 @@ export default {
   --darkGrey: #222;
   --appWidth: 1200px;
   --swatchBord: 1px solid rgba(255,255,255,0.3);
+  --swatchDim: 100px;
   --suggDim: 25px;
   --mobMinWidth: 500px;
 }
@@ -485,8 +486,12 @@ main {
 }
 
 @media (width <= 650px) {
-  main {
-    border: 5px solid lime;
+  :root {
+    --swatchDim: 80px;
+  }
+
+  html, body {
+    width: 100vw;
   }
 
   .config div {
@@ -498,14 +503,26 @@ main {
     width: 100px;
   }
 
+  .color-display-stage {
+    padding: 0 1rem;
+  }
+
+  .color-display span {
+    margin-right: 20px;
+  }
+
   .color-variants {
     display: block;
   }
 
+  .color-variants span {
+    margin: 0 5px;
+  }
+
   #get-random-color {
     display: block;
-    width: 100%;
-    margin-top: 1rem;
+    width: 90%;
+    margin: 1rem auto 0 auto;
   }
 
   .gallery-wrapper {
@@ -514,6 +531,12 @@ main {
 
   .gallery-wrapper.custom {
     width: 100%;
+  }
+
+  button.mix-random.btn2 {
+    display: block;
+    width: 80%;
+    margin: 1rem auto 0 auto;
   }
 }
 </style>
