@@ -308,15 +308,24 @@ main {
   position: relative;
 }
 
-@media (width <= 550px) {
+@media (width <= 650px) {
   main {
-    padding-right: 1rem;
-    padding-left: 1rem;
     border: 5px solid lime;
+  }
+
+  .config div {
+    width: 100px;
+    font-size: 80%;
   }
 
   .color-variants {
     display: block;
+  }
+
+  #get-random-color {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
   }
 }
 
