@@ -502,10 +502,11 @@ main {
   .config div {
     width: 100px;
     font-size: 80%;
+    margin-bottom: 5px;
   }
 
   .config input {
-    width: 100px;
+    width: 90px;
   }
 
   .color-display-stage {
@@ -571,6 +572,17 @@ main {
     height: 6px !important;
     margin: 0 auto 0.5rem auto !important;
     padding: 2px !important;
+  }
+}
+
+@media (width <= 390px) {
+  .config div {
+    width: 90px;
+    font-size: 75%;
+  }
+
+  .config .wrapper label strong {
+    display: block;
   }
 }
 </style>
