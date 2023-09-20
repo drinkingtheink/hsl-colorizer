@@ -278,7 +278,15 @@ export default {
     handleSwatchClick(swatch) {
         const swColor = chroma(swatch)
         const hslFromSw = swColor.hsl()
-        console.log(`H ${hslFromSw[0].toFixed()} > S ${hslFromSw[1].toFixed(2) * 100} > L ${(hslFromSw[2] * 100).toFixed(2)}`)
+        const h = hslFromSw[0].toFixed()
+        const s = (hslFromSw[1] * 100).toFixed(2)
+        const l = (hslFromSw[2] * 100).toFixed(2)
+
+        this.$emit('hslUpdate', h, s, l)
+        
+        const appTop = document.querySelector('.app-title')
+
+        if (appTop) appTop.scrollIntoView({ behavior: 'smooth'})
     },
     makePalettes(color) {
         this.makeDarkArray(color)

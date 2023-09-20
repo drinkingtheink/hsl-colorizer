@@ -89,6 +89,7 @@
       :lightOrDark="lightOrDark"
       :mixColorFromURL="mixQuery"
       @mixUpdate="updateMixQueryString"
+      @hslUpdate="handleHSLUpdateFromPalettes"
     />
     <ColorDisplay 
       :hex="hex" 
@@ -127,6 +128,31 @@ export default {
     }
   },
   methods: {
+    handleHSLUpdateFromPalettes(h, s, l) {
+      const hueEv = {
+        target: {
+          value : h
+        }
+      }
+
+      this.updateHue(hueEv)
+
+      const satEv = {
+        target: {
+          value : s
+        }
+      }
+
+      this.updateSat(satEv)
+
+      const litEv = {
+        target: {
+          value : l
+        }
+      }
+
+      this.updateLight(litEv)
+    },
     handleSuggClick(color) {
       const theColor = chroma(color)
       const hslVal = theColor.hsl()
