@@ -87,6 +87,7 @@
       :hex="hex" 
       :focusHueInput="focusHueInput" 
       :lightOrDark="lightOrDark"
+      :mixColorFromURL="mixQuery"
       @mixUpdate="updateMixQueryString"
     />
     <ColorDisplay :hex="hex" :hue="hue" :sat="saturation" :light="lightness" />
@@ -160,6 +161,7 @@ export default {
       let hQuery = queryParams.get('hue')
       let sQuery = queryParams.get('sat')
       let lQuery = queryParams.get('lit')
+      let mixQuery = queryParams.get('mix')
 
       if (hQuery) {
         this.hue = Number(hQuery)
@@ -178,6 +180,10 @@ export default {
         this.lightness = Number(lQuery)
       } else {
         this.updateLitQueryString(this.lightness)
+      }
+
+      if (mixQuery) {
+        this.mixQuery = mixQuery
       }
     },
     updateHue(e) {
