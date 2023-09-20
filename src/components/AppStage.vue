@@ -64,7 +64,7 @@
       </div>
 
       <div class="suggestions">
-        <h3>Or Try Some of These:</h3>
+        <h3>Or Try One of These:</h3>
           <div>
               <span
                   class="sugg"
@@ -477,11 +477,12 @@ main {
 .color-variants {
   width: 250px;
   padding-top: 6%;
+  padding-right: 20px;
 }
 
 .color-variants span {
-  margin: 0 10px 10px 0;
-  padding: 5px 10px;
+  margin: 0 0 10px 0;
+  padding: 2px;
   border-radius: 10px;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
@@ -494,7 +495,7 @@ main {
 }
 
 .color-variants span span.hex-display {
-  width: 40px;
+  width: 90px;
 }
 
 .color-variants span span.rgb-display {
