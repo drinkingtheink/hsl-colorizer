@@ -593,6 +593,7 @@ export default {
     margin-bottom: -15px;
     background-color: var(--primary);
     display: inline-block;
+    border: 5px solid rgba(0,0,0,0.5);
 }
 
 .romance .and {

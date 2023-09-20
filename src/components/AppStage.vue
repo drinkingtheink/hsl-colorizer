@@ -47,6 +47,10 @@
     </section>
 
     <section class="color-display-stage">
+      <div class="color-variants">
+        <span class="hex"><strong>HEX:</strong> <span class="hex-display">{{ hex }}</span></span>
+        <span class="rgb"><strong>RGB:</strong> <span class="rgb-display">{{ rgb }}</span></span>
+      </div>
       <div 
         class="color-display" 
         :style="colorDisplay"
@@ -74,14 +78,12 @@
 
     </section>
 
-    <div class="color-variants">
-      <span class="hex"><strong>HEX:</strong> <span class="hex-display">{{ hex }}</span></span>
-      <span class="rgb"><strong>RGB:</strong> <span class="rgb-display">{{ rgb }}</span></span>
+    <div class="color-actions">
       <button 
         id="get-random-color" 
         @click="randomizeHue"
         :class="lightOrDark(hex)"
-      >Random Color</button>
+      >Use Random Color</button>
     </div>
 
     <PaletteDisplay 
@@ -386,15 +388,9 @@ main {
 }
 
 .suggestions {
-  width: 150px;
-  position: absolute;
-  right: 20%;
-}
-
-@media (width <= 1300px) {
-  .suggestions {
-    display: none;
-  }
+  width: 250px;
+  padding-left: 20px;
+  margin-top: 3rem;
 }
 
 .sugg {
@@ -452,11 +448,13 @@ main {
 .color-display-stage {
   position: relative;
   display: flex;
+  justify-content: center;
+  width: 100vw;
 }
 
 .color-display {
   padding: 4rem;
-  margin: 0.5rem auto 0 auto;
+  margin: 0.5rem 0 1rem 0;
   width: 20rem;
   border-radius: 10px;
   border: 10px solid rgba(0,0,0,0.3);
@@ -477,18 +475,17 @@ main {
 }
 
 .color-variants {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 0.5rem 0;
+  width: 250px;
+  padding-top: 6%;
 }
 
 .color-variants span {
-  margin: 0 10px;
+  margin: 0 10px 10px 0;
   padding: 5px 10px;
   border-radius: 10px;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
+  display: block;
 }
 
 .color-variants span span {
@@ -502,14 +499,6 @@ main {
 
 .color-variants span span.rgb-display {
   width: 130px;
-}
-
-.color-variants .hex {
-  width: 150px;
-}
-
-.color-variants .rgb {
-  width: 210px;
 }
 
 .config {
