@@ -512,6 +512,8 @@ export default {
     box-shadow: none;
     border-right: var(--swatchBord);
     border-left: var(--swatchBord);
+    display: flex;
+    align-items: flex-end;
 }
 
 .swatch:hover {
@@ -525,7 +527,7 @@ export default {
     display: block;
     background-color: var(--darkGrey);
     color: white;
-    margin-top: 100%;
+    width: 100%;
 }
 
 .gallery-wrapper.custom {

@@ -599,8 +599,8 @@ main {
     width: 90px;
   }
 
-  .color-display-stage {
-    padding: 0 1rem;
+  .color-display {
+    margin-top: 1rem;
   }
 
   .color-display span {
