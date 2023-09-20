@@ -205,8 +205,10 @@ export default {
       this.updateLitQueryString(this.lightness)
     },
     deleteMixQuery() {
-      let queryParams = new URLSearchParams(window.location.search)
-      queryParams.delete('mix')
+      const urlObj = new URL(window.location);
+      urlObj.searchParams.delete('mix');
+      
+      return urlObj.toString();
     },
     getRandInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)
