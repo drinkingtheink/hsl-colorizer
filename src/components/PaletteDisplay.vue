@@ -645,7 +645,17 @@ export default {
     font-size: 120%;
 }
 
+.q-mark:nth-child(1) {
+    animation: swell 1.5s infinite alternate-reverse;
+}
+
 .q-mark:nth-child(2) {
     animation: swell 1.5s infinite alternate-reverse;
+    animation-delay: 0.5s;
+}
+
+.q-mark:nth-child(3) {
+    animation: swell 1.5s infinite alternate-reverse;
+    animation-delay: 1s;
 }
 </style>
