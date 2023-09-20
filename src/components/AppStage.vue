@@ -550,6 +550,32 @@ main {
   background-color: var(--primary)
 }
 
+@media (width <= 800px) {
+  .suggestions {
+    display: none;
+  }
+
+  .color-display-stage {
+    display: block;
+  }
+
+  .color-display {
+    margin: 0 auto 1rem auto;
+  }
+
+  .color-variants {
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  .color-variants span {
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
+  }
+}
+
 @media (width <= 550px) {
   :root {
     --swatchDim: 80px;
