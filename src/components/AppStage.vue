@@ -131,7 +131,7 @@ export default {
     }
   },
   methods: {
-    handleHSLUpdateFromPalettes(hsl) {
+    getValsFromHSL(hsl) {
       let h = hsl[0].toFixed()
       const s = (hsl[1] * 100).toFixed()
       const l = (hsl[2] * 100).toFixed()
@@ -139,6 +139,11 @@ export default {
       if (isNaN(h)) {
         h = 1
       }
+
+      return { h, s, l }
+    },
+    handleHSLUpdateFromPalettes(hsl) {
+      const { h, s, l } = this.getValsFromHSL(hsl)
 
       const hueEv = {
         target: {
