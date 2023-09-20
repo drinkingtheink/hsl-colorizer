@@ -449,6 +449,7 @@ export default {
 <style>
 .color-meta {
     margin: 2rem 0 0 0;
+    font-size: 140%;
 }
 
 .color-meta p {
