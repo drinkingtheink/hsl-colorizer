@@ -172,29 +172,32 @@ export default {
     handleSuggClick(color) {
       const theColor = chroma(color)
       const hslVal = theColor.hsl()
+
+      const { h, s, l } = this.getValsFromHSL(hslVal)
+
       const hEvent = {
         target: {
-          value: hslVal[0].toFixed()
+          value: h
         }
       }
 
       this.updateHue(hEvent)
 
-      // const sEvent = {
-      //   target: {
-      //     value: hslVal[1]
-      //   }
-      // }
+      const sEvent = {
+        target: {
+          value: s
+        }
+      }
 
-      // this.updateSat(sEvent)
+      this.updateSat(sEvent)
 
-      // const lEvent = {
-      //   target: {
-      //     value: hslVal[2]
-      //   }
-      // }
+      const lEvent = {
+        target: {
+          value: l
+        }
+      }
 
-      // this.updateLight(lEvent)
+      this.updateLight(lEvent)
       
       this.generateColorSuggestions()
     },
