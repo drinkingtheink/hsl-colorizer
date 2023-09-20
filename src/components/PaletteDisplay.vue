@@ -509,7 +509,6 @@ export default {
 .swatch {
     width: var(--swatchDim);
     height: var(--swatchDim);
-    transition: all 0.2;
     box-shadow: none;
     border-right: var(--swatchBord);
     border-left: var(--swatchBord);
