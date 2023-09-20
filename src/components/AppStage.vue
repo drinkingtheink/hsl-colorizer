@@ -317,6 +317,7 @@ export default {
   --lrdMobSwatchDim: 50px;
   --suggDim: 25px;
   --mobMinWidth: 500px;
+  --smallColorDim: 30px;
 }
 
 html, body {
@@ -476,12 +477,11 @@ main {
 }
 
 .config .small-color-display {
-  width: 3px;
-  height: 3px;
+  width: var(--smallColorDim);
+  height: var(--smallColorDim);
   border-radius: 50%;
   background-color: var(--primary);
   border: 4px solid rgba(0, 0, 0, 0.4);
-  margin-top: 18px;
 }
 
 .section-banner {
