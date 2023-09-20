@@ -89,7 +89,7 @@
       :lightOrDark="lightOrDark"
       :mixColorFromURL="mixQuery"
       @mixUpdate="updateMixQueryString"
-      @hslUpate="handleHSLUpdateFromPalettes"
+      @hslUpdate="handleHSLUpdateFromPalettes"
     />
 
     <ColorDisplay 
@@ -126,11 +126,11 @@ export default {
       lightness: 50,
       suggestions: [],
       suggestionCount: 12,
+      mixQuery: null,
     }
   },
   methods: {
     handleHSLUpdateFromPalettes(hsl) {
-      console.log(`DEALING WITH THESE >> ${hsl}`)
       const h = hsl[0].toFixed()
       const s = (hsl[1] * 100).toFixed()
       const l = (hsl[2] * 100).toFixed()

@@ -275,16 +275,15 @@ export default {
       }
   },
   methods: {
-    handleSwatchClick() {
+    handleSwatchClick(swatch) {
+        
+        const swColor = chroma(swatch)
+        const hslFromSw = swColor.hsl()
 
-        // const swColor = chroma(swatch)
-        // const hslFromSw = swColor.hsl()
+        this.$emit('hslUpdate', hslFromSw)
 
-        // this.$emit('hslUpdate', hslFromSw)
-
-        // const appTop = document.querySelector('.app-title')
-
-        // if (appTop) appTop.scrollIntoView({ behavior: 'smooth'})
+        const appTop = document.querySelector('.app-title')
+        if (appTop) appTop.scrollIntoView({ behavior: 'smooth'})
     },
     makePalettes(color) {
         this.makeDarkArray(color)
@@ -520,7 +519,7 @@ export default {
     transform: scale(1.1);
     transition: all 0.2s;
     box-shadow: var(----boxShad);
-    cursor: default;
+    cursor: zoom-in;
 }
 
 .swatch span {
