@@ -47,7 +47,7 @@
                     id="custom-color-input-2" 
                     name="custom-color-input-2" 
                     @input="handleCustomColorInput" 
-                    :value="customMixColor" 
+                    :value="mixColorFromURL || customMixColor" 
                 />
 
                 <button 
@@ -242,6 +242,7 @@ export default {
           toYellowGreenArray: [],
           customArray: [],
           customMixColor: null,
+          mixColorFromURL: null,
       }
   },
   computed: {
@@ -406,11 +407,18 @@ export default {
     }
   },
   mounted() {
-      if (this.hex) this.makePalettes(this.hex)
+    if (this.hex) this.makePalettes(this.hex)
 
-      const colInput1 = document.getElementById('custom-color-input-1')
-      
-      if (colInput1) colInput1.value = chroma.random()
+    const colInput1 = document.getElementById('custom-color-input-1')
+
+    if (colInput1) colInput1.value = chroma.random()
+
+    let queryParams = new URLSearchParams(window.location.search)
+    let mixQuery = queryParams.get('mix')
+
+    if (mixQuery) {
+        this.mixColorFromURL = mixQuery
+    }
   },
   watch: {
     hex() {
