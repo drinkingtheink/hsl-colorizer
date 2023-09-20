@@ -182,9 +182,12 @@ export default {
         this.updateLitQueryString(this.lightness)
       }
 
-      if (mixQuery) {
+      if (mixQuery === "null") {
+        this.mixQuery = null
+        this.deleteMixQuery()
+      } else if (mixQuery) {
         this.mixQuery = mixQuery
-      }
+      } 
     },
     updateHue(e) {
       this.hue = Number(e.target.value)
@@ -200,6 +203,10 @@ export default {
       this.lightness = Number(e.target.value)
 
       this.updateLitQueryString(this.lightness)
+    },
+    deleteMixQuery() {
+      let queryParams = new URLSearchParams(window.location.search)
+      queryParams.delete('mix')
     },
     getRandInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)

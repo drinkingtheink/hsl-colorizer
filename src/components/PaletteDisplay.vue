@@ -386,6 +386,10 @@ export default {
         const chromaColor = color2 ? chroma(color2) : null
         const otherColor = color1 ? chroma(color1) : null
 
+        if (!chromaColor) {
+            return
+        }
+
         if (!otherColor) {
             return
         }
@@ -396,12 +400,14 @@ export default {
     },
     clearCustomColor() {
         this.customMixColor = null
+        this.$emit('mixUpdate', '')
     },
     mixWithRandom(color) {
         const theColor = chroma(color)
         const otherColor = chroma.random()
 
         this.customMixColor = otherColor
+        this.$emit('mixUpdate', otherColor)
 
         this.makeCustomMixArray(otherColor, theColor)
     }
@@ -427,8 +433,13 @@ export default {
     },
     mixColorFromURL() {
         if (this.mixColorFromURL) {
-            console.log(`MIX UPDATE PARAM FOUND >>>>> ${this.mixColorFromURL}`)
             this.customMixColor = this.mixColorFromURL
+
+            const mixSection = document.querySelector('.gallery-wrapper.custom')
+            
+            if (this.mixColorFromURL && mixSection) {
+                mixSection.scrollIntoView({ behavior: "smooth" });
+            }
         }
     }
   },
