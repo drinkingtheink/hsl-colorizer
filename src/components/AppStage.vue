@@ -90,7 +90,12 @@
       :mixColorFromURL="mixQuery"
       @mixUpdate="updateMixQueryString"
     />
-    <ColorDisplay :hex="hex" :hue="hue" :sat="saturation" :light="lightness" />
+    <ColorDisplay 
+      :hex="hex" 
+      :hue="hue" 
+      :sat="saturation" 
+      :light="lightness" 
+    />
   </main>
 </template>
 
@@ -311,7 +316,7 @@ export default {
   --customMixInputWidth: 300px;
   --borRad: 10px;
   --pointerDim: 200px;
-  --customMixCircDim: 50px;
+  --customMixCircDim: 70px;
   --darkGrey: #222;
   --appWidth: 1200px;
   --swatchBord: 1px solid rgba(255,255,255,0.3);

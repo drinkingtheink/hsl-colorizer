@@ -7,12 +7,14 @@
                 v-for="swatch in lightArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
             <span
                 class="swatch"
                 v-for="swatch in darkArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -20,7 +22,7 @@
     <div class="gallery-wrapper custom">
         <h3>Make Your Own Mix</h3>
         <div v-if="!customMixColor" class="capture-color">
-            <p class="romance"><span class="selected" @click="focusHueInput" /><span class="and">&</span><span class="q-mark">?</span><span class="q-mark">?</span><span class="q-mark">?</span></p>
+            <p class="romance"><span class="selected" @click="focusHueInput" /><span class="and">&</span><span class="q-mark-wrapper"><span class="q-mark">?</span><span class="q-mark">?</span><span class="q-mark">?</span></span></p>
             <label for="custom-color-input-1">Pick a color below to mix with your selection</label>
             <input type="color" id="custom-color-input-1" name="custom-color-input-1" @input="handleCustomColorInput" />
             <button 
@@ -36,6 +38,7 @@
                     v-for="swatch in customArray"
                     :key="swatch"
                     :style="`background-color: ${swatch}`"
+                    @click="handleSwatchClick(swatch)"
                 ><span>{{ swatch }}</span></span>
             </div>
             <div v-if="customSelectedContrast" class="color-meta">
@@ -75,6 +78,7 @@
                 v-for="swatch in toBlueArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -87,6 +91,7 @@
                 v-for="swatch in toRedArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -99,6 +104,7 @@
                 v-for="swatch in toYellowArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -111,6 +117,7 @@
                 v-for="swatch in toGreenArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -123,6 +130,7 @@
                 v-for="swatch in toOrangeArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -135,6 +143,7 @@
                 v-for="swatch in toPurpleArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -147,6 +156,7 @@
                 v-for="swatch in toBlueGreenArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -159,6 +169,7 @@
                 v-for="swatch in toBlueVioletArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -171,6 +182,7 @@
                 v-for="swatch in toRedOrangeArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -183,6 +195,7 @@
                 v-for="swatch in toRedVioletArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -195,6 +208,7 @@
                 v-for="swatch in toYellowOrangeArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -207,6 +221,7 @@
                 v-for="swatch in toYellowGreenArray"
                 :key="swatch"
                 :style="`background-color: ${swatch}`"
+                @click="handleSwatchClick(swatch)"
             ><span>{{ swatch }}</span></span>
         </div>
     </div>
@@ -260,6 +275,11 @@ export default {
       }
   },
   methods: {
+    handleSwatchClick(swatch) {
+        const swColor = chroma(swatch)
+        const hslFromSw = swColor.hsl()
+        console.log(`H ${hslFromSw[0].toFixed()} > S ${hslFromSw[1].toFixed(2) * 100} > L ${(hslFromSw[2] * 100).toFixed(2)}`)
+    },
     makePalettes(color) {
         this.makeDarkArray(color)
         this.makeLightArray(color)
@@ -494,6 +514,7 @@ export default {
     transform: scale(1.1);
     transition: all 0.2s;
     box-shadow: var(----boxShad);
+    cursor: pointer;
 }
 
 .swatch span {
@@ -599,5 +620,28 @@ export default {
 
 .btn2:hover {
     color: var(--darkGrey);
+}
+
+@keyframes swell {
+    0% {
+        font-size: 160%;
+    }
+
+    100% {
+        font-size: 140%;
+    }
+}
+
+.q-mark-wrapper {
+    display: inline-block;
+    width: 100px;
+}
+
+.q-mark {
+    font-size: 120%;
+}
+
+.q-mark:nth-child(2) {
+    animation: swell 1.5s infinite alternate-reverse;
 }
 </style>
