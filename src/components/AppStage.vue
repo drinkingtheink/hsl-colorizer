@@ -13,6 +13,7 @@
           name="hue-input" 
           min="0" 
           max="359" 
+          :value="hue"
           @input="updateHue"
         />
         <label for="hue-input"><strong>Hue</strong> {{ hue }}°</label>
@@ -25,7 +26,7 @@
           name="sat-input" 
           min="0" 
           max="100" 
-          value="90"
+          :value="saturation"
           @input="updateSat"
         />
         <label for="sat-input"><strong>Saturation</strong> {{ saturation }}%</label>
@@ -38,7 +39,7 @@
           name="light-input" 
           min="0" 
           max="100" 
-          value="50" 
+          :value="lightness" 
           @input="updateLight"
         />
         <label for="light-input"><strong>Lightness</strong> {{ lightness }}%</label>
