@@ -146,4 +146,8 @@ export default {
 .colors-stage .gallery-wrapper {
     margin: 10px 20px 50px 20px;
 }
+
+.colors-stage .swatch:hover {
+    cursor: default;
+}
 </style>
