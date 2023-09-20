@@ -370,6 +370,9 @@ export default {
   --suggDim: 25px;
   --mobMinWidth: 500px;
   --smallColorDim: 30px;
+  --qmarkColor1: #abfcc7;
+  --qmarkColor2: #FAE282;
+  --qmarkColor3: #BCC7FF;
 }
 
 html, body {

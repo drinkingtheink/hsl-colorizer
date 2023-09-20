@@ -629,6 +629,15 @@ export default {
 @keyframes swell {
     0% {
         font-size: 160%;
+        color: var(--qmarkColor1);
+    }
+
+    35% {
+        color: var(--qmarkColor2);
+    }
+
+    75% {
+        color: var(--qmarkColor3);
     }
 
     100% {
