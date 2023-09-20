@@ -377,7 +377,9 @@ export default {
         }
     },
     handleCustomColorInput(e) {
-        this.customMixColor = e.target.value;
+        this.customMixColor = e.target.value
+
+        this.$emit('mixUpdate', this.customMixColor)
     },
     makeCustomMixArray(color1, color2) {
         const chromaColor = color2 ? chroma(color2) : null

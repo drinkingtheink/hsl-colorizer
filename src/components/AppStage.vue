@@ -87,6 +87,7 @@
       :hex="hex" 
       :focusHueInput="focusHueInput" 
       :lightOrDark="lightOrDark"
+      @mixUpdate="updateMixQueryString"
     />
     <ColorDisplay :hex="hex" :hue="hue" :sat="saturation" :light="lightness" />
   </main>
@@ -225,6 +226,11 @@ export default {
     updateLitQueryString(val) {
       let queryParams = new URLSearchParams(window.location.search);
       queryParams.set(`lit`, val);
+      history.replaceState(null, null, `?${queryParams.toString()}`);
+    },
+    updateMixQueryString(val) {
+      let queryParams = new URLSearchParams(window.location.search);
+      queryParams.set(`mix`, val);
       history.replaceState(null, null, `?${queryParams.toString()}`);
     },
     randomizeHue() {
