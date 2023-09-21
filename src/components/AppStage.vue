@@ -672,6 +672,10 @@ main {
   .palette-stage {
     overflow: hidden;
   }
+
+  .sugg:nth-child(n+8) {
+    display: none;
+  }
 }
 
 @media (width <= 390px) {
