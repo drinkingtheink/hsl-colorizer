@@ -558,6 +558,7 @@ export default {
 
 .gallery-wrapper.custom .capture-color input {
     width: var(--customMixInputWidth);
+    margin-bottom: 1rem;
 }
 
 .gallery-wrapper.custom .color-captured input {

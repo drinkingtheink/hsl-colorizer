@@ -476,7 +476,7 @@ main {
 
 .color-variants {
   width: 250px;
-  padding-top: 6%;
+  padding-top: 4.5rem;
   padding-right: 20px;
 }
 
