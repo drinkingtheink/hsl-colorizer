@@ -554,6 +554,7 @@ main {
   .suggestions {
     width: 100%;
     margin: 1rem 0;
+    width: 90%;
   }
 
   .color-display-stage {
@@ -609,6 +610,7 @@ main {
 
   .color-display {
     margin-top: 1rem;
+    width: 60%;
   }
 
   .color-display span {
@@ -620,7 +622,7 @@ main {
   }
 
   .color-variants span {
-    margin: 0 5px;
+    margin: 0 5px 5px 0;
   }
 
   #get-random-color {
