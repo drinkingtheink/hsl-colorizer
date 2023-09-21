@@ -390,7 +390,7 @@ main {
 .suggestions {
   width: 250px;
   padding-left: 20px;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .sugg {
