@@ -552,7 +552,8 @@ main {
 
 @media (width <= 800px) {
   .suggestions {
-    display: none;
+    width: 100%;
+    margin: 1rem 0;
   }
 
   .color-display-stage {
@@ -574,6 +575,13 @@ main {
     padding-left: 10px;
     margin-right: 10px;
   }
+}
+
+@media (width <= 740px) {
+    #clear-custom-color {
+      display: block;
+      margin: 0 auto;
+    }
 }
 
 @media (width <= 550px) {
@@ -637,11 +645,6 @@ main {
 
   .color-captured {
     width: 85%;
-    margin: 0 auto;
-  }
-
-  #clear-custom-color {
-    display: block;
     margin: 0 auto;
   }
 
